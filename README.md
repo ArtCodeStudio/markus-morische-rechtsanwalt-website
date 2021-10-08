@@ -19,7 +19,7 @@ deno run --allow-net --allow-read --importmap=imports.json --allow-env --config 
 ```
 ## Strapi
 
-Tested with Node.js v16, you can use NVM() to switch between different Node.js versions:
+Tested with Node.js v16, you can use [NVM](https://github.com/nvm-sh/nvm) to switch between different Node.js versions:
 
 ```
 nvm install 16

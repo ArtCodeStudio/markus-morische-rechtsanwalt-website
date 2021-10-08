@@ -3,18 +3,24 @@ import { Get } from "alosaur/src/decorator/Get.ts";
 
 @Controller()
 export class ViewController {
-  @Get()
+  @Get("/")
   public async getHome() {
-    return await View("pages/home", {});
+    try {
+      const page = await View("pages/home", {});
+      return page;
+    } catch (error) {
+      console.error(error);
+    }
   }
   @Get("/test")
   public async getTest() {
     console.log("getTest");
     try {
-      return await View("pages/test", {
+      const page = await View("pages/test", {
         firstname: "Pascal",
         lastname: "Garber",
       });
+      return page;
     } catch (error) {
       console.error(error);
     }

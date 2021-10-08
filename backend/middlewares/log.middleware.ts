@@ -19,7 +19,7 @@ export class Log implements MiddlewareTarget<unknown> {
     return new Promise<void>((resolve) => {
       console.log(
         (context as any)?.request?.url,
-        context.state,
+        context?.state,
         new Date().getTime() - this.date.getTime(),
       );
       resolve();
