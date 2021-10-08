@@ -1,0 +1,6 @@
+[submodule "packages/sevdesk"]
+	path = packages/sevdesk
+	url = https://github.com/ArtCodeStudio/sevdesk.git
+[submodule "packages/clockify"]
+	path = packages/clockify
+	url = https://github.com/ArtCodeStudio/clockify-ts
