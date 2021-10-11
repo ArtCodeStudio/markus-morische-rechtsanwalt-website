@@ -8,7 +8,8 @@
 @import 'variables-bootstrap';
 
 // Riba
-@import '~@ribajs/core/src/index';
+@import '~@ribajs/core';
+@import '~@ribajs/bs5';
 
 // External Components
 @import 'components/index';

@@ -19,6 +19,8 @@ html(lang='de')
     meta(name="msapplication-TileColor" content="#ffffff")
     meta(name="msapplication-config" content="/favicons/browserconfig.xml")
     meta(name="theme-color" content="#ffffff")
+
+    title Markus Morische
     
   body
     div
@@ -27,20 +29,42 @@ html(lang='de')
         #layout-top
           mm-header
             .container-fluid.container-lg
-              mm-logo.p-2
-                img.img-fluid(src="/images/logo.svg")
+              .row
+                .col
+                  mm-logo.p-2
+                    img.img-fluid(src="/images/logo.svg")
+                .col-auto
+                  .row.h-100.d-flex.align-items-center.justify-content-center
+                    .d-none.d-md-block.col.text-end.text-nowrap
+                      a(href="mailto:post@markusmorische.de")
+                        //- bs5-icon.mx-1(src="/iconset/svg/icon_mail.svg", size="12")
+                        | post@markusmorische.de
+                      br
+                      a(href="tel:+4947215512951")
+                        //- bs5-icon.mx-1(src="/iconset/svg/icon_phone.svg", size="12")
+                        | 04721 5512951
+                    .col.d-flex.align-items-center.justify-content-end
+                      a(href="https://www.facebook.com/people/Markus-Morische/100072439706304/")
+                        bs5-icon(src="/iconset/svg/social_facebook_square.svg", size="32")
+                    .col.d-flex.align-items-center.justify-content-end
+                      a(href="https://www.instagram.com/markusmorische/")
+                        bs5-icon(src="/iconset/svg/social_instagram_square.svg", size="32")
+                    .col.d-flex.align-items-center.justify-content-end
+                      a(href="https://www.xing.com/profile/Markus_Morische")
+                        bs5-icon(src="/iconset/svg/social_xing_square.svg", size="32")
         router-view#main(listen-all-links="true")
           block content
         #layout-bottom
-          mm-footer.fixed-bottom.navbar.navbar-expand.navbar-light.bg-light
+          mm-footer
             .container
-              .navbar-nav.w-100.d-flex.justify-content-evenly.justify-content-md-center
-                .nav-item
-                  a.nav-link Über
-                .nav-item
-                  a.nav-link Impressum
-                .nav-item
-                  a.nav-link Datenschutz
+              navbar.fixed-bottom.navbar.navbar-expand.navbar-dark.bg-dark
+                .navbar-nav.w-100.d-flex.justify-content-evenly.justify-content-md-center
+                  .nav-item
+                    a.nav-link Über
+                  .nav-item
+                    a.nav-link Impressum
+                  .nav-item
+                    a.nav-link Datenschutz
     script.
       window.env = {};
       window.env.STRAPI_EXTERN_URL = "#{env.STRAPI_EXTERN_URL}";
