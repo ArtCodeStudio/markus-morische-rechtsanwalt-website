@@ -10,7 +10,7 @@ export class PageService {
   constructor() {}
 
   public list() {
-    return this.strapi.list();
+    return this.strapi.list<StrapiRestAPIPage>();
   }
 
   public async get(slug: string) {

@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "contacts",
+  "info": {
+    "name": "contact",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email"
+    },
+    "phoneLabel": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "faxLabel": {
+      "type": "string"
+    },
+    "faxNumber": {
+      "type": "string"
+    }
+  }
+}

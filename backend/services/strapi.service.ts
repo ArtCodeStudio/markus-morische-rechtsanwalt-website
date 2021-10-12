@@ -27,7 +27,6 @@ export class StrapiService {
 
   public async get<T = unknown>(url?: URL) {
     url = url || this.baseUrl;
-    console.debug("url", url.toString());
     const response = await fetch(url);
     const data = await response.json() as StrapiRestAPIError | T;
     this.handleError(data as StrapiRestAPIError);
