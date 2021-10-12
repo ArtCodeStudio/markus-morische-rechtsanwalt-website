@@ -1,9 +1,9 @@
 import { HttpError, NotFoundError } from "alosaur/mod.ts";
 import { strapiConfig } from "../settings.ts";
-import { StrapiRestAPIError } from "../types/index.ts";
+import { StrapiRestAPIError } from "../types/strapi-rest-api-error.ts";
 
 export class StrapiService {
-  private config = strapiConfig;
+  public readonly config = strapiConfig;
   private baseUrl: URL;
   private errorMessages = {
     notFound: `Not found!`,
@@ -25,9 +25,8 @@ export class StrapiService {
     return data as T[];
   }
 
-  public async getBySlug<T = unknown>(slug: string) {
-    const url = new URL(this.baseUrl.toString());
-    url.search = `slug=${slug}`;
+  public async get<T = unknown>(url?: URL) {
+    url = url || this.baseUrl;
     console.debug("url", url.toString());
     const response = await fetch(url);
     const data = await response.json() as StrapiRestAPIError | T;
@@ -35,7 +34,13 @@ export class StrapiService {
     if (Array.isArray(data)) {
       return data[0] as T;
     }
-    throw new NotFoundError(this.errorMessages.notFound);
+    return data as T;
+  }
+
+  public async getBySlug<T = unknown>(slug: string) {
+    const url = new URL(this.baseUrl.toString());
+    url.search = `slug=${slug}`;
+    return await this.get<T>(url);
   }
 
   public handleError(error: StrapiRestAPIError | any) {

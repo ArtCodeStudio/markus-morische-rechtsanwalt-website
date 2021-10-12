@@ -36,7 +36,7 @@ npm run build
 
 ```
 cd strapi
-npm start
+npm run start
 ```
 
 ## Frontend

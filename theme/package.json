@@ -72,6 +72,7 @@
     "@ribajs/iconset": "workspace:*",
     "@ribajs/leaflet-map": "workspace:*",
     "@ribajs/router": "workspace:*",
+    "@ribajs/strapi": "workspace:*",
     "@ribajs/types": "workspace:*",
     "@ribajs/utils": "workspace:*",
     "bootstrap": "^5.1.2"

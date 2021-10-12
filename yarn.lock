@@ -2019,6 +2019,7 @@ __metadata:
     "@ribajs/iconset": "workspace:*"
     "@ribajs/leaflet-map": "workspace:*"
     "@ribajs/router": "workspace:*"
+    "@ribajs/strapi": "workspace:packages/riba/packages/strapi"
     "@ribajs/tsconfig": "workspace:*"
     "@ribajs/types": "workspace:*"
     "@ribajs/utils": "workspace:*"
@@ -3751,6 +3752,19 @@ __metadata:
     "@ribajs/events": "workspace:*"
     "@ribajs/utils": "workspace:*"
     "@types/express": ^4.17.13
+    "@types/node": ^16.10.2
+  languageName: unknown
+  linkType: soft
+
+"@ribajs/strapi@workspace:packages/riba/packages/strapi":
+  version: 0.0.0-use.local
+  resolution: "@ribajs/strapi@workspace:packages/riba/packages/strapi"
+  dependencies:
+    "@babel/runtime": ^7.15.4
+    "@babel/runtime-corejs3": ^7.15.4
+    "@ribajs/core": "workspace:*"
+    "@ribajs/tsconfig": "workspace:*"
+    "@ribajs/utils": "workspace:*"
     "@types/node": ^16.10.2
   languageName: unknown
   linkType: soft

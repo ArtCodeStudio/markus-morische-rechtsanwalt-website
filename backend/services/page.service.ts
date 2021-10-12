@@ -1,6 +1,6 @@
 import { Injectable } from "alosaur/mod.ts";
 import { StrapiService } from "./strapi.service.ts";
-import { StrapiRestAPIPage } from "../types/index.ts";
+import { StrapiRestAPIPage } from "../types/strapi-rest-api-page.ts";
 import { html, tokens } from "rusty_markdown/mod.ts";
 
 @Injectable()

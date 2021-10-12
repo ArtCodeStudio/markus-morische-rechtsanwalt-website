@@ -5,6 +5,7 @@ import { EventDispatcher } from "@ribajs/events";
 import { routerModule, FadeTransition } from "@ribajs/router";
 import { bs5Module } from "@ribajs/bs5";
 import { leafletModule } from "@ribajs/leaflet-map";
+import { strapiModule } from "@ribajs/strapi";
 import { artAndCodeStudioModule } from "@ribajs/artcodestudio";
 
 // Own
@@ -16,9 +17,7 @@ import * as formatters from "./formatters";
 declare global {
   interface Window {
     env: {
-      STRAPI_EXTERN_URL: string;
-      STRAPI_STUDENT_EXTERN_URL: string;
-      NEST_EXTERN_URL: string;
+      STRAPI_REMOTE_URL: string;
     };
   }
 }
@@ -56,7 +55,8 @@ export class CSRApp {
     );
     this.riba.module.regist(bs5Module.init());
     this.riba.module.regist(leafletModule);
-    this.riba.module.regist(artAndCodeStudioModule.init({}));
+    this.riba.module.regist(strapiModule.init({}));
+    this.riba.module.regist(artAndCodeStudioModule.init({}));    
 
     this.view = this.riba.bind(document.body, this.model);
 

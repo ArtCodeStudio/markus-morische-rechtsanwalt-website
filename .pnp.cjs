@@ -183,6 +183,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/riba/packages/ssr"
       },
       {
+        "name": "@ribajs/strapi",
+        "reference": "workspace:packages/riba/packages/strapi"
+      },
+      {
         "name": "@ribajs/utils",
         "reference": "workspace:packages/riba/packages/utils"
       },
@@ -235,6 +239,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@ribajs/shopify-nest", ["workspace:packages/riba/packages/shopify-nest"]],
       ["@ribajs/shopify-tda", ["workspace:packages/riba/packages/shopify-tda"]],
       ["@ribajs/ssr", ["workspace:packages/riba/packages/ssr"]],
+      ["@ribajs/strapi", ["workspace:packages/riba/packages/strapi"]],
       ["@ribajs/tsconfig", ["workspace:packages/riba/infra/tsconfig"]],
       ["@ribajs/types", ["workspace:packages/riba/infra/types"]],
       ["@ribajs/utils", ["workspace:packages/riba/packages/utils"]],
@@ -3766,6 +3771,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@ribajs/iconset", "workspace:packages/riba/packages/iconset"],
             ["@ribajs/leaflet-map", "workspace:packages/riba/packages/leaflet-map"],
             ["@ribajs/router", "workspace:packages/riba/packages/router"],
+            ["@ribajs/strapi", "workspace:packages/riba/packages/strapi"],
             ["@ribajs/tsconfig", "workspace:packages/riba/infra/tsconfig"],
             ["@ribajs/types", "workspace:packages/riba/infra/types"],
             ["@ribajs/utils", "workspace:packages/riba/packages/utils"],
@@ -6097,6 +6103,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@ribajs/events", "workspace:packages/riba/packages/events"],
             ["@ribajs/utils", "workspace:packages/riba/packages/utils"],
             ["@types/express", "npm:4.17.13"],
+            ["@types/node", "npm:16.10.3"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@ribajs/strapi", [
+        ["workspace:packages/riba/packages/strapi", {
+          "packageLocation": "./packages/riba/packages/strapi/",
+          "packageDependencies": [
+            ["@ribajs/strapi", "workspace:packages/riba/packages/strapi"],
+            ["@babel/runtime", "npm:7.15.4"],
+            ["@babel/runtime-corejs3", "npm:7.15.4"],
+            ["@ribajs/core", "workspace:packages/riba/packages/core"],
+            ["@ribajs/tsconfig", "workspace:packages/riba/infra/tsconfig"],
+            ["@ribajs/utils", "workspace:packages/riba/packages/utils"],
             ["@types/node", "npm:16.10.3"]
           ],
           "linkType": "SOFT",
