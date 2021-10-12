@@ -1,6 +1,7 @@
 import { Controller, Get, HttpError, Param, View } from "alosaur/mod.ts";
 import { PageService } from "../../services/page.service.ts";
 import { HomeService } from "../../services/home.service.ts";
+import { NavigationService } from "../../services/navigation.service.ts";
 import { ViewContext } from "../../types/view-context.ts";
 
 @Controller()
@@ -8,6 +9,7 @@ export class ViewController {
   constructor(
     private readonly home: HomeService,
     private readonly page: PageService,
+    private readonly nav: NavigationService,
   ) {}
 
   @Get("/")
@@ -15,8 +17,9 @@ export class ViewController {
     const ctx: ViewContext = {};
     try {
       const home = await this.home.get();
-      console.debug("home", home);
-      const html = await View("templates/home", { ctx, home });
+      const nav = await this.nav.get();
+      console.debug("nav", nav);
+      const html = await View("templates/home", { ctx, home, nav });
       return html;
     } catch (error) {
       console.error(error);
@@ -30,9 +33,11 @@ export class ViewController {
     };
     try {
       const page = await this.page.get(slug);
+      const nav = await this.nav.get();
       const html = await View("templates/page", {
         ctx,
         page,
+        nav,
       });
       return html;
     } catch (error) {
