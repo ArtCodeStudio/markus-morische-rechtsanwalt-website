@@ -1,0 +1,7 @@
+extends ../layouts/main.pug
+
+block content
+  .container-fluid.container-lg.my-5
+    .row
+      .col-12
+        h1 #{error.httpCode} - #{error.message || error.error}

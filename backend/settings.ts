@@ -14,8 +14,13 @@ const STATIC_ROOT = Deno.env.get("STATIC_ROOT") ||
 
 const LOGGING = Deno.env.get("LOGGING") === "true" || false;
 
-const STRAPI_EXTERN_URL = Deno.env.get("STRAPI_EXTERN_URL") ||
-  `localhost:3002`;
+/** Used for client side requests to strapi */
+const STRAPI_REMOTE_URL = Deno.env.get("STRAPI_REMOTE_URL") ||
+  `http://localhost:3002`;
+
+/** Used for server side requests to strapi */
+const STRAPI_LOCAL_URL = Deno.env.get("STRAPI_LOCAL_URL") ||
+  `http://localhost:3002`;
 
 export const appSettings: AppSettings = {
   areas: [ViewArea],
@@ -30,9 +35,16 @@ export const serverSettings: Deno.ListenOptions = {
   port: Number(SERVER_PORT),
 };
 
+export const strapiConfig = {
+  url: {
+    remote: STRAPI_REMOTE_URL,
+    local: STRAPI_LOCAL_URL,
+  },
+};
+
 const viewGlobalModel = {
   env: {
-    STRAPI_EXTERN_URL,
+    STRAPI_REMOTE_URL,
   },
 };
 

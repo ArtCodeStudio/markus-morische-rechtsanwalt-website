@@ -32,25 +32,24 @@ html(lang='de')
               .row
                 .col
                   mm-logo.py-2
-                    img.img-fluid(src="/images/logo.svg")
+                    a(href="/")
+                      img.img-fluid(src="/images/logo.svg")
                 .col-auto
-                  .row.h-100.d-flex.align-items-center.justify-content-center
+                  .row.h-100.d-flex.align-items-end.justify-content-center
                     .d-none.d-md-block.col.text-end.text-nowrap
                       a(href="mailto:post@markusmorische.de")
-                        //- bs5-icon.mx-1(src="/iconset/svg/icon_mail.svg", size="12")
                         | post@markusmorische.de
                       br
                       a(href="tel:+4947215512951")
-                        //- bs5-icon.mx-1(src="/iconset/svg/icon_phone.svg", size="12")
                         | 04721 5512951
                     .col.d-flex.align-items-center.justify-content-end
-                      a(href="https://www.facebook.com/people/Markus-Morische/100072439706304/")
+                      a(href="https://www.facebook.com/people/Markus-Morische/100072439706304/", target="_blank")
                         bs5-icon(src="/iconset/svg/social_facebook_square.svg", size="32")
                     .col.d-flex.align-items-center.justify-content-end
-                      a(href="https://www.instagram.com/markusmorische/")
+                      a(href="https://www.instagram.com/markusmorische/", target="_blank")
                         bs5-icon(src="/iconset/svg/social_instagram_square.svg", size="32")
                     .col.d-flex.align-items-center.justify-content-end
-                      a(href="https://www.xing.com/profile/Markus_Morische")
+                      a(href="https://www.xing.com/profile/Markus_Morische", target="_blank")
                         bs5-icon(src="/iconset/svg/social_xing_square.svg", size="32")
         router-view#main(listen-all-links="true")
           block content
@@ -60,11 +59,11 @@ html(lang='de')
               navbar.fixed-bottom.navbar.navbar-expand.navbar-dark.bg-dark
                 .navbar-nav.w-100.d-flex.justify-content-evenly.justify-content-md-center
                   .nav-item
-                    a.nav-link Über
+                    a.nav-link(href="/", rv-route-class-active="") Über
                   .nav-item
-                    a.nav-link Impressum
+                    a.nav-link(href="/impressum", rv-route-class-active="") Impressum
                   .nav-item
-                    a.nav-link Datenschutz
+                    a.nav-link(href="/datenschutz", rv-route-class-active="") Datenschutz
     script.
       window.env = {};
       window.env.STRAPI_EXTERN_URL = "#{env.STRAPI_EXTERN_URL}";
