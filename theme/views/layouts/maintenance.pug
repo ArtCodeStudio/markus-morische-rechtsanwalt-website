@@ -11,10 +11,8 @@ html(lang='de')
     title Markus Morische
     
   body
-    include ../partials/header.pug
     router-view#main(listen-all-links="true")
       block content
-    include ../partials/footer.pug
     script.
       window.env = {};
       window.env.STRAPI_EXTERN_URL = "#{env.STRAPI_EXTERN_URL}";
