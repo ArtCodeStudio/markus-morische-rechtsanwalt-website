@@ -7,9 +7,10 @@ html(lang='de')
     link(rel='stylesheet', type='text/css', href='/fonts.css')
     link(rel='stylesheet', type='text/css', href='/main.css')
 
+    include ../partials/seo/head.pug
+
     include ../partials/favicons.pug
-    title Markus Morische
-    
+
   body
     include ../partials/header.pug
     router-view#main(listen-all-links="true")

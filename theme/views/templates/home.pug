@@ -6,22 +6,15 @@ block content
       .row
         .col-12.col-md.d-flex.align-items-center
           .mx-md-5
-            img.img-fluid.rounded-md-circle(src= home.avatar.url, alt=home.avatar.alternativeText)
+            img.img-fluid.rounded-md-circle(src= home.avatar.url, alt=home.avatar.alternativeText, title=home.avatar.alternativeText, width=home.avatar.width, height=home.avatar.height)
         .col-12.col-md
           .row
             .col-12
-              .display-2.mt-5.my-md-0
+              h1.display-2.mt-5.my-md-0
                 .fw-bold= home.title
                 .fw-light= home.subtitle
               .mt-5!= home.content
           .row.my-5.d-block.d-md-none
-            //- .col-auto.text-start
-            //-   span.me-3 Jetzt
-            //-   a.btn.btn-outline-primary.my-2(href="mailto:" + contact.email) E-Mail schreiben
-            //-   span.mx-2 ,
-            //-   a.btn.btn-outline-primary.my-2(href="tel:" + contact.phoneNumber) Anrufen
-            //-   span.mx-2 oder
-            //-   a.btn.btn-outline-primary.my-2(href="/backend/api/contact") Kontakt herunterladen
             .col-auto.text-center
               .btn-group-vertical
                 a.btn.btn-outline-primary.my-2(href="mailto:" + contact.email) E-Mail schreiben

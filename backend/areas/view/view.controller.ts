@@ -6,6 +6,7 @@ import { NavigationService } from "../../services/navigation.service.ts";
 import { SocialLinkService } from "../../services/sozial-link.service.ts";
 import { ContactService } from "../../services/contact.service.ts";
 import { SettingsService } from "../../services/settings.service.ts";
+import { SeoService } from "../../services/seo.service.ts";
 import { ViewContext } from "../../types/view-context.ts";
 
 @Controller()
@@ -17,6 +18,7 @@ export class ViewController {
     private readonly contact: ContactService,
     private readonly home: HomeService,
     private readonly page: PageService,
+    private readonly seo: SeoService,
   ) {}
 
   @Get("/")
@@ -28,10 +30,15 @@ export class ViewController {
         return this.renderMaintenancePage(globals);
       }
       const home = await this.home.get();
+      const seo = this.seo.get({
+        template: "home",
+        home,
+      });
       const html = await View("templates/home", {
         ctx,
         home,
         ...globals,
+        seo,
       });
       return html;
     } catch (error) {
@@ -50,10 +57,15 @@ export class ViewController {
         return this.renderMaintenancePage(globals);
       }
       const page = await this.page.get(slug);
+      const seo = this.seo.get({
+        template: "page",
+        page,
+      });
       const html = await View("templates/page", {
         ctx,
         page,
         ...globals,
+        seo,
       });
       return html;
     } catch (error) {
