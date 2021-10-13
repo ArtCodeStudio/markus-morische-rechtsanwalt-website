@@ -312,7 +312,8 @@
     "schemas": {
       "Settings": {
         "required": [
-          "id"
+          "id",
+          "maintenanceText"
         ],
         "properties": {
           "id": {
@@ -321,14 +322,25 @@
           "maintenanceMode": {
             "type": "boolean",
             "default": false
+          },
+          "maintenanceText": {
+            "type": "string",
+            "default": "Diese Seite befindet sich derzeit noch im Aufbau, bitte schauen Sie später noch einmal vorbei."
           }
         }
       },
       "NewSettings": {
+        "required": [
+          "maintenanceText"
+        ],
         "properties": {
           "maintenanceMode": {
             "type": "boolean",
             "default": false
+          },
+          "maintenanceText": {
+            "type": "string",
+            "default": "Diese Seite befindet sich derzeit noch im Aufbau, bitte schauen Sie später noch einmal vorbei."
           },
           "created_by": {
             "type": "string"

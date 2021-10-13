@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "10/13/2021 12:18:38 PM"
+    "x-generation-date": "10/13/2021 12:31:45 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5009,7 +5009,8 @@
       },
       "Settings": {
         "required": [
-          "id"
+          "id",
+          "maintenanceText"
         ],
         "properties": {
           "id": {
@@ -5018,14 +5019,25 @@
           "maintenanceMode": {
             "type": "boolean",
             "default": false
+          },
+          "maintenanceText": {
+            "type": "string",
+            "default": "Diese Seite befindet sich derzeit noch im Aufbau, bitte schauen Sie später noch einmal vorbei."
           }
         }
       },
       "NewSettings": {
+        "required": [
+          "maintenanceText"
+        ],
         "properties": {
           "maintenanceMode": {
             "type": "boolean",
             "default": false
+          },
+          "maintenanceText": {
+            "type": "string",
+            "default": "Diese Seite befindet sich derzeit noch im Aufbau, bitte schauen Sie später noch einmal vorbei."
           },
           "created_by": {
             "type": "string"
