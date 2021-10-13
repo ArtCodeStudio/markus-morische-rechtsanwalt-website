@@ -4,6 +4,7 @@
     "pug/": "https://deno.land/x/pug@v0.1.1/",
     "dotenv/": "https://deno.land/x/dotenv@v3.0.0/",
     "std/": "https://deno.land/std@0.110.0/",
-    "rusty_markdown/": "https://deno.land/x/rusty_markdown@v0.4.1/"
+    "rusty_markdown/": "https://deno.land/x/rusty_markdown@v0.4.1/",
+    "vcard/": "https://deno.land/x/vcard@v1.0.6d/"
   }
 }

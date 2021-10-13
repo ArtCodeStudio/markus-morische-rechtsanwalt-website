@@ -1,6 +1,7 @@
 import "dotenv/load.ts"; // Autoload .env file
 import { AppSettings, ViewRenderConfig } from "alosaur/mod.ts";
 import { ViewArea } from "./areas/view/view.area.ts";
+import { ApiArea } from "./areas/api/api.area.ts";
 import { Log } from "./middlewares/log.middleware.ts";
 import { compileFile, Options as PugOptions } from "pug/mod.ts";
 
@@ -23,7 +24,7 @@ const STRAPI_LOCAL_URL = Deno.env.get("STRAPI_LOCAL_URL") ||
   `http://localhost:3002`;
 
 export const appSettings: AppSettings = {
-  areas: [ViewArea],
+  areas: [ViewArea, ApiArea],
   middlewares: [Log],
   logging: LOGGING,
   staticConfig: {

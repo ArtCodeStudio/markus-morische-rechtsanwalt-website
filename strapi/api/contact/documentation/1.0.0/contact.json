@@ -312,7 +312,14 @@
     "schemas": {
       "Contact": {
         "required": [
-          "id"
+          "id",
+          "firstName",
+          "lastName",
+          "photo",
+          "street",
+          "city",
+          "postalCode",
+          "countryRegion"
         ],
         "properties": {
           "id": {
@@ -332,10 +339,116 @@
           },
           "faxNumber": {
             "type": "string"
+          },
+          "firstName": {
+            "type": "string",
+            "default": "Markus"
+          },
+          "lastName": {
+            "type": "string",
+            "default": "Morische"
+          },
+          "title": {
+            "type": "string",
+            "default": "Fachanwalt für Erbrecht"
+          },
+          "photo": {
+            "required": [
+              "id",
+              "name",
+              "hash",
+              "mime",
+              "size",
+              "url",
+              "provider"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "alternativeText": {
+                "type": "string"
+              },
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {
+                "type": "object"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {
+                "type": "object"
+              },
+              "related": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "url": {
+            "type": "string"
+          },
+          "street": {
+            "type": "string",
+            "default": "Strichweg 24-28"
+          },
+          "city": {
+            "type": "string",
+            "default": "Cuxhaven"
+          },
+          "postalCode": {
+            "type": "string",
+            "default": "27472"
+          },
+          "countryRegion": {
+            "type": "string",
+            "default": "Deutschland"
           }
         }
       },
       "NewContact": {
+        "required": [
+          "firstName",
+          "lastName",
+          "street",
+          "city",
+          "postalCode",
+          "countryRegion"
+        ],
         "properties": {
           "email": {
             "type": "string"
@@ -351,6 +464,37 @@
           },
           "faxNumber": {
             "type": "string"
+          },
+          "firstName": {
+            "type": "string",
+            "default": "Markus"
+          },
+          "lastName": {
+            "type": "string",
+            "default": "Morische"
+          },
+          "title": {
+            "type": "string",
+            "default": "Fachanwalt für Erbrecht"
+          },
+          "url": {
+            "type": "string"
+          },
+          "street": {
+            "type": "string",
+            "default": "Strichweg 24-28"
+          },
+          "city": {
+            "type": "string",
+            "default": "Cuxhaven"
+          },
+          "postalCode": {
+            "type": "string",
+            "default": "27472"
+          },
+          "countryRegion": {
+            "type": "string",
+            "default": "Deutschland"
           },
           "created_by": {
             "type": "string"

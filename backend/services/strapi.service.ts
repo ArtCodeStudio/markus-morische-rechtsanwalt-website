@@ -1,6 +1,7 @@
 import { HttpError, NotFoundError } from "alosaur/mod.ts";
 import { strapiConfig } from "../settings.ts";
 import { StrapiRestAPIError } from "../types/strapi-rest-api-error.ts";
+import { StrapiImage } from "../types/strapi-image.ts";
 
 export class StrapiService {
   public readonly config = strapiConfig;
@@ -53,5 +54,11 @@ export class StrapiService {
         (error as StrapiRestAPIError).message,
       );
     }
+  }
+
+  public getRemoteStrapiImageUrl(image: StrapiImage) {
+    const url = new URL(this.config.url.remote);
+    url.pathname = image.url;
+    return url.toString();
   }
 }
