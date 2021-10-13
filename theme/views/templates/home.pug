@@ -15,8 +15,15 @@ block content
                 .fw-light= home.subtitle
               .mt-5!= home.content
           .row.my-5.d-block.d-md-none
-            .text-start
-              span.me-3 Jetzt
-              a.btn.btn-outline-primary(href="mailto:" + contact.email) E-Mail schreiben
-              span.mx-3 oder
-              a.btn.btn-outline-primary(href="tel:" + contact.phoneNumber) Anrufen
+            //- .col-auto.text-start
+            //-   span.me-3 Jetzt
+            //-   a.btn.btn-outline-primary.my-2(href="mailto:" + contact.email) E-Mail schreiben
+            //-   span.mx-2 ,
+            //-   a.btn.btn-outline-primary.my-2(href="tel:" + contact.phoneNumber) Anrufen
+            //-   span.mx-2 oder
+            //-   a.btn.btn-outline-primary.my-2(href="/backend/api/contact") Kontakt herunterladen
+            .col-auto.text-center
+              .btn-group-vertical
+                a.btn.btn-outline-primary(href="mailto:" + contact.email) E-Mail schreiben
+                a.btn.btn-outline-primary(href="tel:" + contact.phoneNumber) Anrufen
+                a.btn.btn-outline-primary(href="/backend/api/contact") Kontakt herunterladen

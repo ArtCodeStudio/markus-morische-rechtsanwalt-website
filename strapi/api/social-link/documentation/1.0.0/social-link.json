@@ -611,11 +611,18 @@
               "social_xing_square",
               "social_youtube",
               "social_youtube_circle",
-              "social_youtube_square"
+              "social_youtube_square",
+              "icon_download",
+              "icon_contacts",
+              "icon_contacts_alt"
             ]
           },
           "url": {
             "type": "string"
+          },
+          "active": {
+            "type": "boolean",
+            "default": true
           }
         }
       },
@@ -699,11 +706,18 @@
               "social_xing_square",
               "social_youtube",
               "social_youtube_circle",
-              "social_youtube_square"
+              "social_youtube_square",
+              "icon_download",
+              "icon_contacts",
+              "icon_contacts_alt"
             ]
           },
           "url": {
             "type": "string"
+          },
+          "active": {
+            "type": "boolean",
+            "default": true
           },
           "created_by": {
             "type": "string"

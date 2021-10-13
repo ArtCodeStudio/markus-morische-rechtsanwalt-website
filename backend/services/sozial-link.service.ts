@@ -8,7 +8,8 @@ export class SocialLinkService {
 
   constructor() {}
 
-  public list() {
-    return this.strapi.list<StrapiRestAPISocialLink>();
+  public async list() {
+    const links = await this.strapi.list<StrapiRestAPISocialLink>();
+    return links.filter((link) => link.active !== false);
   }
 }

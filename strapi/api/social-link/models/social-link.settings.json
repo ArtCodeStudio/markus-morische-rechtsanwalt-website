@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "social_links",
   "info": {
-    "name": "Social Link"
+    "name": "Social Link",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -85,13 +86,20 @@
         "social_xing_square",
         "social_youtube",
         "social_youtube_circle",
-        "social_youtube_square"
+        "social_youtube_square",
+        "icon_download",
+        "icon_contacts",
+        "icon_contacts_alt"
       ],
       "required": true
     },
     "url": {
       "type": "string",
       "required": true
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
     }
   }
 }
