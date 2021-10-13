@@ -1,8 +1,8 @@
 import { AlosaurResponse, Controller, Get, Res } from "alosaur/mod.ts";
 import { ContactService } from "../../services/contact.service.ts";
 
-@Controller("/api")
-export class ApiController {
+@Controller("/api2")
+export class Api2Controller {
   constructor(
     private readonly contact: ContactService,
   ) {}
