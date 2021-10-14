@@ -4,7 +4,7 @@ mm-header
       .col
         mm-logo.py-2
           a(href="/")
-            img.img-fluid(src="/images/logo.svg", title="Logo", alt="Logo", width="394", height="220")
+            img.img-fluid(loading="lazy", src="/images/logo.svg", title="Logo", alt="Logo", width="394", height="220")
       .col-auto
         .row.h-100.d-flex.align-items-end.justify-content-center
           .d-none.d-md-block.col.text-end.text-nowrap
@@ -12,6 +12,7 @@ mm-header
             br
             a(href="tel:" + contact.phoneNumber)= contact.phoneLabel
           each social in socialLinks
+            - var svgSrc = "/iconset/svg/" + social.icon + ".svg";
             .col.d-flex.align-items-center.justify-content-end
               a(href=social.url, target="_blank")
-                bs5-icon(src="/iconset/svg/" + social.icon + ".svg", size="32")
+                bs5-icon(src=svgSrc, size="32")
