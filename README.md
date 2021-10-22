@@ -4,11 +4,11 @@ Monorepo website project build with Deno + Alosaur + Riba.js + Strapi
 
 ## Backend
 
-Tested with Deno v1.14.3, you can use [DVM](https://opensourcelibs.com/lib/dvm) to switch between different Deno versions:
+Tested with Deno v1.15.2, you can use [DVM](https://opensourcelibs.com/lib/dvm) to switch between different Deno versions:
 
 ```
-dvm install 1.14.3
-dvm use 1.14.3
+dvm install 1.15.2
+dvm use 1.15.2
 ```
 
 ### Start

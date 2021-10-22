@@ -7,4 +7,6 @@ const app = new App(appSettings);
 
 app.useViewRender(viewRenderConfig);
 
+console.info("Deno version: ", Deno.version);
+
 app.listen(serverSettings);

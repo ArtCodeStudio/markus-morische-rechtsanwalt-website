@@ -41,8 +41,7 @@ export class ContactService {
       countryRegion: contact.countryRegion,
     };
 
-    // Wait for fix: https://github.com/timpeq/vCards-ts/issues/1
-    // vcard.socialUrls = await this.getSocialUrls();
+    vcard.socialUrls = await this.getSocialUrls();
 
     vcard.photo = {
       url: this.strapi.getRemoteStrapiImageUrl(contact.photo),
