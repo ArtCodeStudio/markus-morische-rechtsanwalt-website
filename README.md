@@ -4,6 +4,9 @@ Monorepo of website project for [markusmorische.de](https://markusmorische.de/) 
 
 ![Screenshot](https://user-images.githubusercontent.com/1073989/141288178-949b138d-c1f7-44fb-b729-f67a72e3d17c.png)
 
+## Licence
+
+This project is licensed under the AGPL license, except for the assets (logo, font, etc), which are private and the use of which is prohibited in all respects.
 
 ## Backend
 
