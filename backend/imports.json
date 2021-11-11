@@ -2,8 +2,9 @@
   "imports": {
     "alosaur/": "https://deno.land/x/alosaur@v0.34.0/",
     "pug/": "https://deno.land/x/pug@v0.1.1/",
-    "dotenv/": "https://deno.land/x/dotenv@v3.0.0/",
-    "std/": "https://deno.land/std@0.112.0/",
+    "dotenv/": "https://deno.land/x/dotenv@v3.1.0/",
+    "std/": "https://deno.land/std@0.114.0/",
+    "https://deno.land/std/": "https://deno.land/std@0.114.0/",
     "rusty_markdown/": "https://deno.land/x/rusty_markdown@v0.4.1/",
     "vcard/": "https://deno.land/x/vcard@v1.0.7d/"
   }

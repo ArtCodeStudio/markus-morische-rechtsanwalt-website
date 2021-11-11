@@ -1,12 +1,8 @@
 import { ready } from "@ribajs/utils/src/dom";
 import { Riba, View, coreModule } from "@ribajs/core";
-import { extrasModule } from "@ribajs/extras";
-import { EventDispatcher } from "@ribajs/events";
 import { routerModule, FadeTransition } from "@ribajs/router";
-import { bs5Module } from "@ribajs/bs5";
-import { leafletModule } from "@ribajs/leaflet-map";
+import { Bs5IconComponent } from "@ribajs/bs5";
 import { strapiModule } from "@ribajs/strapi";
-import { artAndCodeStudioModule } from "@ribajs/artcodestudio";
 
 // Own
 import * as components from "./components";
@@ -26,11 +22,6 @@ export class CSRApp {
   protected view?: View;
   protected riba = new Riba();
   protected model: any = {};
-  protected routerEvents = EventDispatcher.getInstance("main");
-
-  protected onPageChanges() {
-
-  }
 
   constructor() {
     this.riba.configure({
@@ -47,16 +38,13 @@ export class CSRApp {
 
     // Regist modules
     this.riba.module.regist(coreModule.init());
-    this.riba.module.regist(extrasModule.init());
     this.riba.module.regist(
       routerModule.init({
         defaultTransition: new FadeTransition(),
       })
     );
-    this.riba.module.regist(bs5Module.init());
-    this.riba.module.regist(leafletModule);
+    this.riba.module.component.regists({ Bs5IconComponent });
     this.riba.module.regist(strapiModule.init({}));
-    this.riba.module.regist(artAndCodeStudioModule.init({}));    
 
     this.view = this.riba.bind(document.body, this.model);
 
@@ -68,8 +56,6 @@ export class CSRApp {
         console.error(error);
       }
     );
-
-    this.routerEvents.on("transitionCompleted", this.onPageChanges, this);
   }
 }
 

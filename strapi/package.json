@@ -1,5 +1,5 @@
 {
-  "name": "strapi",
+  "name": "@markus-morische/strapi",
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
@@ -10,8 +10,8 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "knex": "0.21.18",
-    "sqlite3": "5.0.0",
+    "knex": "0.95.14",
+    "sqlite3": "5.0.2",
     "strapi": "3.6.8",
     "strapi-admin": "3.6.8",
     "strapi-connector-bookshelf": "3.6.8",
