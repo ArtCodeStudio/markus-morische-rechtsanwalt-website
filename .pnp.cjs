@@ -261,6 +261,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/parser", "virtual:f6ef8ae6b5332297fb4fd26d9da1f4439c6cee25ca458b817f2a39d275385a370ba7f4739ef6f4602df98edba1b5029b447cf1b062a13d4af7bb4fb463365c2a#npm:4.33.0"],
             ["@yarnpkg/pnpify", "npm:3.1.1-rc.3"],
             ["@yarnpkg/sdks", "npm:2.5.1-rc.1"],
+            ["concurrently", "npm:6.4.0"],
             ["eslint", "npm:7.32.0"],
             ["eslint-config-prettier", "virtual:f6ef8ae6b5332297fb4fd26d9da1f4439c6cee25ca458b817f2a39d275385a370ba7f4739ef6f4602df98edba1b5029b447cf1b062a13d4af7bb4fb463365c2a#npm:8.3.0"],
             ["eslint-plugin-prettier", "virtual:f6ef8ae6b5332297fb4fd26d9da1f4439c6cee25ca458b817f2a39d275385a370ba7f4739ef6f4602df98edba1b5029b447cf1b062a13d4af7bb4fb463365c2a#npm:4.0.0"],
@@ -13844,6 +13845,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["yargs", "npm:16.2.0"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:6.4.0", {
+          "packageLocation": "./.yarn/cache/concurrently-npm-6.4.0-39aec52159-902864cc85.zip/node_modules/concurrently/",
+          "packageDependencies": [
+            ["concurrently", "npm:6.4.0"],
+            ["chalk", "npm:4.1.2"],
+            ["date-fns", "npm:2.25.0"],
+            ["lodash", "npm:4.17.21"],
+            ["rxjs", "npm:6.6.7"],
+            ["spawn-command", "npm:0.0.2"],
+            ["supports-color", "npm:8.1.1"],
+            ["tree-kill", "npm:1.2.2"],
+            ["yargs", "npm:16.2.0"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["config-chain", [
@@ -21906,6 +21922,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/parser", "virtual:f6ef8ae6b5332297fb4fd26d9da1f4439c6cee25ca458b817f2a39d275385a370ba7f4739ef6f4602df98edba1b5029b447cf1b062a13d4af7bb4fb463365c2a#npm:4.33.0"],
             ["@yarnpkg/pnpify", "npm:3.1.1-rc.3"],
             ["@yarnpkg/sdks", "npm:2.5.1-rc.1"],
+            ["concurrently", "npm:6.4.0"],
             ["eslint", "npm:7.32.0"],
             ["eslint-config-prettier", "virtual:f6ef8ae6b5332297fb4fd26d9da1f4439c6cee25ca458b817f2a39d275385a370ba7f4739ef6f4602df98edba1b5029b447cf1b062a13d4af7bb4fb463365c2a#npm:8.3.0"],
             ["eslint-plugin-prettier", "virtual:f6ef8ae6b5332297fb4fd26d9da1f4439c6cee25ca458b817f2a39d275385a370ba7f4739ef6f4602df98edba1b5029b447cf1b062a13d4af7bb4fb463365c2a#npm:4.0.0"],

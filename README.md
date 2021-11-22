@@ -10,18 +10,18 @@ This project is licensed under the AGPL license, except for the assets (logo, fo
 
 ## Backend
 
-Tested with Deno v1.15.2, you can use [DVM](https://opensourcelibs.com/lib/dvm) to switch between different Deno versions:
+Tested with Deno v1.16.2, you can use [DVM](https://opensourcelibs.com/lib/dvm) to switch between different Deno versions:
 
 ```
-dvm install 1.15.2
-dvm use 1.15.2
+dvm install 1.16.2
+dvm use 1.16.2
 ```
 
 ### Start
 
 ```
 cd backend
-deno run --allow-net --allow-read --importmap=imports.json --allow-env --config ./tsconfig.json --watch app.ts
+deno run --allow-net --allow-read --importmap=imports.json --unstable --allow-env --config tsconfig.json app.ts
 ```
 ## Strapi
 
@@ -64,5 +64,5 @@ npm run build
 ### Generate OpenAPI file
 
 ```
-deno run --allow-read --allow-write --config ./src/tsconfig.lib.json openapi.ts
+deno run --allow-read --importmap=imports.json --allow-write --config tsconfig.json openapi.ts
 ```

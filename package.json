@@ -3,9 +3,12 @@
     "version": "0.0.1",
     "description": "",
     "scripts": {
-        "start": "yarn run start:strapi && yarn run start:backend",
-        "start:strapi": "pm2 --cwd strapi start strapi/pm2.strapi.config.js",
-        "start:backend": "dvm use 1.15.2 && pm2 --cwd backend start backend/pm2.backend.config.js",
+        "start": "concurrently \"yarn:start:*\"",
+        "start:strapi": "cd strapi && NODE_OPTIONS=\"\" npm run start",
+        "start:backend": "cd backend && dvm use 1.16.2 && deno run --allow-net --allow-read --importmap=imports.json --unstable --allow-env --config tsconfig.json app.ts",
+        "pm2": "yarn run pm2:strapi && yarn run pm2:backend",
+        "pm2:strapi": "pm2 --cwd strapi start strapi/pm2.strapi.config.js",
+        "pm2:backend": "dvm use 1.16.2 && pm2 --cwd backend start backend/pm2.backend.config.js",
         "build": "yarn run build:theme && yarn run build:strapi",
         "build:theme": "yarn workspace @markus-morische/theme run build",
         "build:strapi": "cd strapi && NODE_OPTIONS=\"\" npm run build && cd .."
@@ -31,6 +34,7 @@
         "@typescript-eslint/experimental-utils": "^4.33.0",
         "@typescript-eslint/parser": "^4.33.0",
         "@yarnpkg/pnpify": "^3.1.1-rc.3",
+        "concurrently": "^6.4.0",
         "eslint": "^7.32.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-prettier": "^4.0.0"

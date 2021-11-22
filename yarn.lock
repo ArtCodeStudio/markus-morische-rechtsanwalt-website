@@ -8639,6 +8639,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"concurrently@npm:^6.4.0":
+  version: 6.4.0
+  resolution: "concurrently@npm:6.4.0"
+  dependencies:
+    chalk: ^4.1.0
+    date-fns: ^2.16.1
+    lodash: ^4.17.21
+    rxjs: ^6.6.3
+    spawn-command: ^0.0.2-1
+    supports-color: ^8.1.0
+    tree-kill: ^1.2.2
+    yargs: ^16.2.0
+  bin:
+    concurrently: bin/concurrently.js
+  checksum: 902864cc853176cac406246fa367a1b24ebfcbea9ba43c164f9cb4e2c9c1a5f9d8be05ce98fe7ef13329ffd5cc340a052007a9c870863e2068425d95b3bf89d7
+  languageName: node
+  linkType: hard
+
 "config-chain@npm:^1.1.11":
   version: 1.1.13
   resolution: "config-chain@npm:1.1.13"
@@ -15176,6 +15194,7 @@ fsevents@^1.2.7:
     "@typescript-eslint/parser": ^4.33.0
     "@yarnpkg/pnpify": ^3.1.1-rc.3
     "@yarnpkg/sdks": ^2.5.1-rc.1
+    concurrently: ^6.4.0
     eslint: ^7.32.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^4.0.0
