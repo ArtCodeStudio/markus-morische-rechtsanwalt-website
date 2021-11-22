@@ -6,9 +6,9 @@
         "start": "concurrently \"yarn:start:*\"",
         "start:strapi": "cd strapi && NODE_OPTIONS=\"\" npm run start",
         "start:backend": "cd backend && dvm use 1.16.2 && deno run --allow-net --allow-read --importmap=imports.json --unstable --allow-env --config tsconfig.json app.ts",
-        "pm2": "yarn run pm2:strapi && yarn run pm2:backend",
-        "pm2:strapi": "pm2 --cwd strapi start strapi/pm2.strapi.config.js",
-        "pm2:backend": "dvm use 1.16.2 && pm2 --cwd backend start backend/pm2.backend.config.js",
+        "pm2:start": "yarn run pm2:start:strapi && yarn run pm2:start:backend",
+        "pm2:start:strapi": "pm2 --cwd strapi start strapi/pm2.strapi.config.js",
+        "pm2:start:backend": "dvm use 1.16.2 && pm2 --cwd backend start backend/pm2.backend.config.js",
         "build": "yarn run build:theme && yarn run build:strapi",
         "build:theme": "yarn workspace @markus-morische/theme run build",
         "build:strapi": "cd strapi && NODE_OPTIONS=\"\" npm run build && cd .."
