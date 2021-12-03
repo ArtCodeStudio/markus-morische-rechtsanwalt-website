@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../backend"
+		},
+		{
+			"path": "../strapi"
+		},
+		{
+			"path": "../theme"
+		},
+		{
+			"path": "../packages/riba"
+		}
+	],
+	"settings": {
+		"typescript.tsdk": ".yarn/sdks/typescript/lib",
+		"typescript.enablePromptUseWorkspaceTsdk": true
+	}
+}
