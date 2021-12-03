@@ -10,18 +10,25 @@ This project is licensed under the AGPL license, except for the assets (logo, fo
 
 ## Backend
 
-Tested with Deno v1.16.2, you can use [DVM](https://opensourcelibs.com/lib/dvm) to switch between different Deno versions:
+Tested with Deno v1.16.3, you can use [DVM](https://opensourcelibs.com/lib/dvm) to switch between different Deno versions:
 
 ```
-dvm install 1.16.2
-dvm use 1.16.2
+dvm install 1.16.3
+dvm use 1.16.3
 ```
 
 ### Start
 
 ```
 cd backend
-deno run --allow-net --allow-read --importmap=imports.json --unstable --allow-env --config tsconfig.json app.ts
+deno run --allow-run scripts.ts start
+```
+
+### Watch
+
+```
+cd backend
+deno run --allow-run scripts.ts watch
 ```
 ## Strapi
 
