@@ -12,21 +12,21 @@ This project is licensed under the AGPL license, except for the assets (logo, fo
 
 Tested with Deno v1.16.3, you can use [DVM](https://opensourcelibs.com/lib/dvm) to switch between different Deno versions:
 
-```
+```bash
 dvm install 1.16.3
 dvm use 1.16.3
 ```
 
 ### Start
 
-```
+```bash
 cd backend
 deno run --allow-run scripts.ts start
 ```
 
 ### Watch
 
-```
+```bash
 cd backend
 deno run --allow-run scripts.ts watch
 ```
@@ -34,20 +34,20 @@ deno run --allow-run scripts.ts watch
 
 Tested with Node.js v16, you can use [NVM](https://github.com/nvm-sh/nvm) to switch between different Node.js versions:
 
-```
+```bash
 nvm install 16
 nvm use 16
 ```
 
 ### Build
 
-```
+```bash
 cd strapi
 npm run build
 ```
 ### Start
 
-```
+```bash
 cd strapi
 npm run start
 ```
@@ -56,13 +56,13 @@ npm run start
 
 Uses Node.js and Yarn to build:
 
-```
+```bash
 npm install --global yarn
 ```
 
 ### Build
 
-```
+```bash
 cd theme
 npm run build
 ```
@@ -70,6 +70,6 @@ npm run build
 
 ### Generate OpenAPI file
 
-```
+```bash
 deno run --allow-read --importmap=imports.json --allow-write --config tsconfig.json openapi.ts
 ```

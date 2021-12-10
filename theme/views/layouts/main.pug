@@ -17,6 +17,6 @@ html(lang='de')
     include ../partials/footer.pug
     script.
       window.env = {};
-      window.env.STRAPI_EXTERN_URL = "#{env.STRAPI_EXTERN_URL}";
+      window.env.STRAPI_REMOTE_URL = "#{env.STRAPI_REMOTE_URL}";
     script(async, src='/vendors.bundle.js')
     script(async, src='/main.bundle.js')
