@@ -11,6 +11,7 @@ const scssIndexPath = resolve(scssSourceDir, "main.scss");
 
 const config = {
   template: "local",
+  publicPath: outputPath,
   copyAssets: {
     enable: true,
     images: true,
