@@ -1,22 +1,29 @@
-import { Injectable } from "alosaur/mod.ts";
+import { Injectable, NotFoundError } from "alosaur/mod.ts";
 import { StrapiService } from "./strapi.service.ts";
-import { StrapiRestAPIPage } from "../types/strapi-rest-api-page.ts";
-import { html, tokens } from "rusty_markdown/mod.ts";
+import { StrapiRestAPIListPage } from "../types/strapi-rest-api-page.ts";
+import { html, tokens } from "rusty_markdown/mod.ts";;
 
 @Injectable()
 export class PageService {
   private strapi = new StrapiService("pages");
 
-  constructor() {}
+  constructor() { }
 
-  public list() {
-    return this.strapi.list<StrapiRestAPIPage>();
+  public async list() {
+    const { data } = await this.strapi.list<StrapiRestAPIListPage>();
+    const pages = data.map((page) => page.attributes);
+    return pages;
   }
 
   public async get(slug: string) {
     try {
-      const page = await this.strapi.getBySlug<StrapiRestAPIPage>(slug);
-      page.content = html(tokens(page.content));
+      const { data } = await this.strapi.getBySlug<StrapiRestAPIListPage>(slug);
+      if (!Array.isArray(data) || !data.length) {
+        throw new NotFoundError(this.strapi.errorMessages.notFound);
+      }
+      const page = data[0].attributes;
+      console.debug("page", page);
+      if (page.content) page.content = html(tokens(page.content));
       return page;
     } catch (error) {
       throw error;

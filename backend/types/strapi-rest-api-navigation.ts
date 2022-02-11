@@ -1,7 +1,10 @@
-import { StrapiRestAPIBase } from "./strapi-rest-api-base.ts";
-import { StrapiRestAPINavigationLink } from "./strapi-rest-api-navigation-link.ts";
+import { StrapiRestAPIGet } from "./strapi-rest-api-get.ts";
+import { StrapiRestAPIListNavigationLink } from "./strapi-rest-api-navigation-link.ts";
+import { StrapiDataBase } from "./strapi-data-base.ts";
 
-export interface StrapiRestAPINavigation extends StrapiRestAPIBase {
+export interface Navigation extends StrapiDataBase {
   home: string;
-  links: StrapiRestAPINavigationLink[];
+  links: StrapiRestAPIListNavigationLink;
 }
+
+export type StrapiRestAPINavigation = StrapiRestAPIGet<Navigation>;

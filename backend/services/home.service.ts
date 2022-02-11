@@ -7,13 +7,14 @@ import { html, tokens } from "rusty_markdown/mod.ts";
 export class HomeService {
   private strapi = new StrapiService("home");
 
-  constructor() {}
+  constructor() { }
 
   public async get() {
     try {
-      const home = await this.strapi.get<StrapiRestAPIHome>();
-      home.content = html(tokens(home.content));
-      home.avatar.url = this.strapi.config.url.remote + home.avatar.url;
+      const { data } = await this.strapi.get<StrapiRestAPIHome>({ populates: ['avatar'] });
+      const home = data.attributes;
+      if (home.content) home.content = html(tokens(home.content));
+      if (home.avatar?.data) home.avatar.data.attributes.url = this.strapi.config.url.remote + home.avatar.data.attributes.url;
       return home;
     } catch (error) {
       throw error;

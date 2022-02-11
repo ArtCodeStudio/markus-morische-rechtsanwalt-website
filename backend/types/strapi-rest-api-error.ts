@@ -1,5 +1,6 @@
 export interface StrapiRestAPIError {
-  statusCode: number;
-  error: string;
+  status: number;
+  name: string;
   message: string;
+  details: unknown;
 }

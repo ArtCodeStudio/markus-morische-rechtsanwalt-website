@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "settings",
+  "info": {
+    "singularName": "setting",
+    "pluralName": "settings",
+    "displayName": "Settings"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "maintenanceMode": {
+      "type": "boolean",
+      "default": false
+    },
+    "maintenanceText": {
+      "type": "richtext",
+      "default": "Diese Seite befindet sich derzeit noch im Aufbau, bitte schauen Sie später noch einmal vorbei.",
+      "required": true
+    }
+  }
+}

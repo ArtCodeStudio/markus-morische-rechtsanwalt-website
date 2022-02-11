@@ -5,13 +5,14 @@ import { html, tokens } from "rusty_markdown/mod.ts";
 
 @Injectable()
 export class SettingsService {
-  private strapi = new StrapiService("settings");
+  private strapi = new StrapiService("setting");
 
-  constructor() {}
+  constructor() { }
 
   public async get() {
     try {
-      const settings = await this.strapi.get<StrapiRestAPISettings>();
+      const { data } = await this.strapi.get<StrapiRestAPISettings>();
+      const settings = data.attributes
       settings.maintenanceText = html(tokens(settings.maintenanceText));
       return settings;
     } catch (error) {

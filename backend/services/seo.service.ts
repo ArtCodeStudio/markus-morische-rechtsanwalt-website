@@ -4,7 +4,7 @@ import { SEO } from "../types/seo.ts";
 
 @Injectable()
 export class SeoService {
-  constructor() {}
+  constructor() { }
 
   public get(options: SEOOptions) {
     const seo: SEO = {
@@ -20,19 +20,19 @@ export class SeoService {
     if (options.template === "page" && options.page) {
       seo.canonical = seo.canonical + "/" + options.page.slug;
       seo.title += " - " + options.page.name;
-      seo.description = this.cutStr(this.stripHtml(options.page.content));
+      if (options.page.content) seo.description = this.cutStr(this.stripHtml(options.page.content));
     }
 
     if (options.template === "home" && options.home) {
       seo.title = options.home.title + " - " + options.home.subtitle;
-      if (options.home.avatar) {
+      if (options.home.avatar?.data) {
         seo.image = {
-          url: options.home.avatar.url,
-          secure_url: options.home.avatar.url,
-          type: options.home.avatar.mime,
-          width: options.home.avatar.width,
-          height: options.home.avatar.height,
-          alt: options.home.avatar.alternativeText,
+          url: options.home.avatar.data.attributes.url,
+          secure_url: options.home.avatar.data.attributes.url,
+          type: options.home.avatar.data.attributes.mime,
+          width: options.home.avatar.data.attributes.width,
+          height: options.home.avatar.data.attributes.height,
+          alt: options.home.avatar.data.attributes.alternativeText,
         };
       }
       seo.description = this.cutStr(this.stripHtml(options.home.content));

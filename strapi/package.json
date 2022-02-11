@@ -1,5 +1,5 @@
 {
-  "name": "@markus-morische/strapi",
+  "name": "strapi-4",
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
@@ -10,29 +10,21 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "knex": "0.95.14",
-    "sqlite3": "5.0.2",
-    "strapi": "3.6.8",
-    "strapi-admin": "3.6.8",
-    "strapi-connector-bookshelf": "3.6.8",
-    "strapi-plugin-content-manager": "3.6.8",
-    "strapi-plugin-content-type-builder": "3.6.8",
-    "strapi-plugin-documentation": "^3.6.8",
-    "strapi-plugin-email": "3.6.8",
-    "strapi-plugin-i18n": "3.6.8",
-    "strapi-plugin-upload": "3.6.8",
-    "strapi-plugin-users-permissions": "3.6.8",
-    "strapi-utils": "3.6.8"
+    "@strapi/plugin-documentation": "^4.0.7",
+    "@strapi/plugin-i18n": "^4.0.7",
+    "@strapi/plugin-users-permissions": "4.0.7",
+    "@strapi/strapi": "4.0.7",
+    "sqlite3": "5.0.2"
   },
   "author": {
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "c3b5d4dd-0767-4573-8b93-ae6e7f694b3a"
+    "uuid": "5724156f-253c-42dc-ac41-15cd2ff9d5e3"
   },
   "engines": {
-    "node": ">=10.16.0 <=14.x.x",
-    "npm": "^6.0.0"
+    "node": ">=12.x.x <=16.x.x",
+    "npm": ">=6.0.0"
   },
   "license": "MIT"
 }

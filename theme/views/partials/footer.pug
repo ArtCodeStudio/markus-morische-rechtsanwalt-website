@@ -3,6 +3,7 @@ mm-footer
     .navbar-nav.w-100.d-flex.justify-content-evenly.justify-content-md-center
       .nav-item
         a.nav-link(href="/", rv-route-class-active="")= nav.home
-      each link in nav.links
-        .nav-item
-          a.nav-link(href="/" + link.page.slug, rv-route-class-active="")= link.label
+      if (nav.links)
+        each link in nav.links
+          .nav-item
+            a.nav-link(href="/" + link.page.data.attributes.slug, rv-route-class-active="")= link.label

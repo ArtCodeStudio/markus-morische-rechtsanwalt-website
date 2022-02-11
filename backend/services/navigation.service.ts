@@ -6,11 +6,12 @@ import { StrapiRestAPINavigation } from "../types/strapi-rest-api-navigation.ts"
 export class NavigationService {
   private strapi = new StrapiService("navigation");
 
-  constructor() {}
+  constructor() { }
 
   public async get() {
     try {
-      const nav = await this.strapi.get<StrapiRestAPINavigation>();
+      const { data } = await this.strapi.get<StrapiRestAPINavigation>({ populates: ["links", "links.page"] });
+      const nav = data.attributes;
       return nav;
     } catch (error) {
       throw error;

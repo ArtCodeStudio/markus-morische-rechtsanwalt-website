@@ -19,7 +19,7 @@ export class ViewController {
     private readonly home: HomeService,
     private readonly page: PageService,
     private readonly seo: SeoService,
-  ) {}
+  ) { }
 
   @Get("/")
   public async renderHomePage() {

@@ -1,9 +1,12 @@
 import { StrapiImage } from "./strapi-image.ts";
-import { StrapiRestAPIBase } from "./strapi-rest-api-base.ts";
+import { StrapiRestAPIGet } from "./strapi-rest-api-get.ts";
+import { StrapiDataBase } from "./strapi-data-base.ts";
 
-export interface StrapiRestAPIHome extends StrapiRestAPIBase {
+export interface Home extends StrapiDataBase {
   title: string;
   subtitle: string;
   content: string;
-  avatar: StrapiImage;
+  avatar?: StrapiRestAPIGet<StrapiImage>;
 }
+
+export type StrapiRestAPIHome = StrapiRestAPIGet<Home>;

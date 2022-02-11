@@ -1,0 +1,75 @@
+{
+  "kind": "singleType",
+  "collectionName": "contacts",
+  "info": {
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "Contact"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email"
+    },
+    "phoneLabel": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "faxLabel": {
+      "type": "string"
+    },
+    "faxNumber": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string",
+      "required": true,
+      "default": "Markus"
+    },
+    "lastName": {
+      "type": "string",
+      "required": true,
+      "default": "Morische"
+    },
+    "title": {
+      "type": "string",
+      "default": "Fachanwalt für Erbrecht"
+    },
+    "photo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "url": {
+      "type": "string"
+    },
+    "street": {
+      "type": "string",
+      "required": true,
+      "default": "Strichweg 24-28"
+    },
+    "city": {
+      "type": "string",
+      "required": true,
+      "default": "Cuxhaven"
+    },
+    "postalCode": {
+      "type": "string",
+      "required": true,
+      "default": "27472"
+    },
+    "countryRegion": {
+      "type": "string",
+      "default": "Deutschland",
+      "required": true
+    }
+  }
+}
