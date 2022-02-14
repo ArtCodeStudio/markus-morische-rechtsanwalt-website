@@ -41,30 +41,30 @@ $green:   #198754 !default;
 $teal:    #20c997 !default;
 $cyan:    #0dcaf0 !default;
 
-$colors: (
-  "blue":       $blue,
-  "indigo":     $indigo,
-  "purple":     $purple,
-  "pink":       $pink,
-  "red":        $red,
-  "orange":     $orange,
-  "yellow":     $yellow,
-  "green":      $green,
-  "teal":       $teal,
-  "cyan":       $cyan,
-  "white":      $white,
-  "gray":       $gray-600,
-  "gray-dark":  $gray-800
-);
-
 $primary:       $orange;
 $secondary:     $gray-600;
 $success:       $green;
 $info:          $cyan;
 $warning:       $yellow;
 $danger:        $red;
-$light:         $gray-100;
+$light:         $white;
 $dark:          $black;
+
+$colors: (
+  // "blue":       $blue,
+  // "indigo":     $indigo,
+  // "purple":     $purple,
+  // "pink":       $pink,
+  // "red":        $red,
+  "orange":     $orange,
+  // "yellow":     $yellow,
+  // "green":      $green,
+  // "teal":       $teal,
+  "white":       $dark,
+  "dark":      $light,
+  // "gray":       $gray-600,
+  // "gray-dark":  $gray-800
+);
 
 $theme-colors: (
   "primary":    $primary,
@@ -73,13 +73,21 @@ $theme-colors: (
 //   "info":       $info,
 //   "warning":    $warning,
 //   "danger":     $danger,
-//   "light":      $light,
+  "light":      $light,
   "dark":       $dark
 );
 
 $theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
 
 $utilities-colors: $theme-colors-rgb;
+
+$utilities-bg: map-merge(
+  $utilities-colors,
+  (
+    "body": to-rgb($body-bg)
+  )
+);
+$utilities-bg-colors: map-loop($utilities-bg, rgba-css-var, "$key", "bg");
 
 // Body
 
@@ -97,9 +105,44 @@ $link-hover-decoration:                   null !default;
 
 // Navbar
 
-$navbar-dark-color:                 $white;
+$navbar-light-color:                $dark;
+$navbar-dark-color:                 $light;
+
+$navbar-light-hover-color:          rgba($primary, .75);
 $navbar-dark-hover-color:           rgba($primary, .75);
+
+$navbar-light-active-color:          $primary;
 $navbar-dark-active-color:          $primary;
-$navbar-dark-disabled-color:        rgba($white, .25);
+
+$navbar-light-disabled-color:        rgba($light, .25);
+$navbar-dark-disabled-color:        rgba($light, .25);
+
+$navbar-light-toggler-icon-bg:       url("");
 $navbar-dark-toggler-icon-bg:       url("");
+
+$navbar-light-toggler-border-color:  transparent;
 $navbar-dark-toggler-border-color:  transparent;
+
+// Options
+$enable-caret: false;
+
+// List group
+$list-group-border-radius: 0;
+
+$list-group-bg: transparent;
+$dark-list-group-bg: transparent;
+
+$list-group-border-color: transparent;
+$dark-list-group-border-color: transparent;
+
+$list-group-action-color: $dark;
+$list-group-action-hover-color: $dark;
+
+$dark-list-group-action-color: $light;
+$dark-list-group-action-hover-color: $light;
+
+$list-group-hover-bg: $primary;
+$dark-list-group-hover-bg: $primary;
+
+$list-group-action-active-bg: $primary;
+$dark-list-group-action-active-bg: $primary;

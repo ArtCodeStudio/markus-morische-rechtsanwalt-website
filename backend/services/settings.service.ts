@@ -1,6 +1,6 @@
 import { Injectable } from "alosaur/mod.ts";
 import { StrapiService } from "./strapi.service.ts";
-import { StrapiRestAPISettings } from "../types/strapi-rest-api-settings.ts";
+import { StrapiRestAPIGetSettings } from "../types/strapi-rest-api-settings.ts";
 import { html, tokens } from "rusty_markdown/mod.ts";
 
 @Injectable()
@@ -10,13 +10,9 @@ export class SettingsService {
   constructor() { }
 
   public async get() {
-    try {
-      const { data } = await this.strapi.get<StrapiRestAPISettings>();
-      const settings = data.attributes
-      settings.maintenanceText = html(tokens(settings.maintenanceText));
-      return settings;
-    } catch (error) {
-      throw error;
-    }
+    const { data } = await this.strapi.get<StrapiRestAPIGetSettings>();
+    const settings = data.attributes
+    settings.maintenanceText = html(tokens(settings.maintenanceText));
+    return settings;
   }
 }

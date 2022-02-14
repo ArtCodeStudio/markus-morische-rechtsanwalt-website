@@ -1,18 +1,26 @@
 {
-  "kind": "singleType",
-  "collectionName": "contacts",
+  "kind": "collectionType",
+  "collectionName": "offices",
   "info": {
-    "singularName": "contact",
-    "pluralName": "contacts",
-    "displayName": "Contact"
+    "singularName": "office",
+    "pluralName": "offices",
+    "displayName": "Office",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
-    "email": {
-      "type": "email"
+    "slug": {
+      "type": "uid",
+      "required": true,
+      "targetField": "city"
+    },
+    "city": {
+      "type": "string",
+      "required": true,
+      "default": "Cuxhaven"
     },
     "phoneLabel": {
       "type": "string"
@@ -33,33 +41,28 @@
     },
     "lastName": {
       "type": "string",
-      "required": true,
-      "default": "Morische"
+      "default": "Morische",
+      "required": true
     },
     "title": {
       "type": "string",
       "default": "Fachanwalt für Erbrecht"
     },
     "photo": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "url": {
       "type": "string"
     },
     "street": {
       "type": "string",
-      "required": true,
-      "default": "Strichweg 24-28"
-    },
-    "city": {
-      "type": "string",
-      "required": true,
-      "default": "Cuxhaven"
+      "default": "Strichweg 24-28",
+      "required": true
     },
     "postalCode": {
       "type": "string",
@@ -69,6 +72,11 @@
     "countryRegion": {
       "type": "string",
       "default": "Deutschland",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "default": "post@markusmorische.de",
       "required": true
     }
   }

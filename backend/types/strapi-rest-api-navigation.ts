@@ -7,4 +7,4 @@ export interface Navigation extends StrapiDataBase {
   links: StrapiRestAPIListNavigationLink;
 }
 
-export type StrapiRestAPINavigation = StrapiRestAPIGet<Navigation>;
+export type StrapiRestAPIGetNavigation = StrapiRestAPIGet<Navigation>;

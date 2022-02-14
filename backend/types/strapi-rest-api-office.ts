@@ -1,8 +1,10 @@
 import { StrapiRestAPIGet } from "./strapi-rest-api-get.ts";
-import { StrapiImage } from "./strapi-image.ts";
+import { StrapiRestAPIList } from "./strapi-rest-api-list.ts";
 import { StrapiDataBase } from "./strapi-data-base.ts";
+import { StrapiImage } from "./strapi-image.ts";
 
-export interface Contact extends StrapiDataBase {
+export interface Office extends StrapiDataBase {
+  slug: string;
   email: string;
   phoneLabel: string;
   phoneNumber: string;
@@ -16,10 +18,8 @@ export interface Contact extends StrapiDataBase {
   city: string;
   postalCode: string;
   countryRegion: string;
-  photo?: {
-    data: StrapiImage
-  };
+  photo?: StrapiRestAPIGet<StrapiImage>;
 }
 
-export type StrapiRestAPIContact = StrapiRestAPIGet<Contact>;
-
+export type StrapiRestAPIGetOffice = StrapiRestAPIGet<Office>;
+export type StrapiRestAPIListOffice = StrapiRestAPIList<Office>;

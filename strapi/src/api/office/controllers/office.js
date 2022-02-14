@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- *  contact controller
+ *  office controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::contact.contact');
+module.exports = createCoreController('api::office.office');

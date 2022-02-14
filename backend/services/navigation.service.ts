@@ -1,6 +1,6 @@
 import { Injectable } from "alosaur/mod.ts";
 import { StrapiService } from "./strapi.service.ts";
-import { StrapiRestAPINavigation } from "../types/strapi-rest-api-navigation.ts";
+import { StrapiRestAPIGetNavigation } from "../types/strapi-rest-api-navigation.ts";
 
 @Injectable()
 export class NavigationService {
@@ -10,7 +10,7 @@ export class NavigationService {
 
   public async get() {
     try {
-      const { data } = await this.strapi.get<StrapiRestAPINavigation>({ populates: ["links", "links.page"] });
+      const { data } = await this.strapi.get<StrapiRestAPIGetNavigation>({ populates: ["links", "links.page"] });
       const nav = data.attributes;
       return nav;
     } catch (error) {

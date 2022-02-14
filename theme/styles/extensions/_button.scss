@@ -3,3 +3,21 @@
         color: $link-color;
     }
 }
+
+.theme-os {
+    @include color-scheme(dark) {
+        .btn {
+            &[class*=' btn-outline-'] {
+                color: $dark-link-color;
+            }
+        }
+    }
+  }
+  
+  .theme-dark {
+    .btn {
+        &[class*=' btn-outline-'] {
+            color: $dark-link-color;
+        }
+    }
+  }

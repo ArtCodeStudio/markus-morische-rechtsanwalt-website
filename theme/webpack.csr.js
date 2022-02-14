@@ -17,7 +17,6 @@ const config = {
     images: true,
     scss: false,
     iconset: true,
-    foldername: assets,
   },
   tsSourceDir,
   scssSourceDir,

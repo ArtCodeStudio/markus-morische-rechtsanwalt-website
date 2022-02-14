@@ -1,9 +1,21 @@
 mm-footer
-  navbar.fixed-bottom.navbar.navbar-expand.navbar-dark.bg-dark
-    .navbar-nav.w-100.d-flex.justify-content-evenly.justify-content-md-center
+  navbar.fixed-bottom.navbar.navbar-expand.bg-tl-dark.bg-td-light.text-tl-light.text-td-dark.navbar-tl-dark.navbar-td-light
+    //- Medium device and up
+    .d-none.d-md-flex.navbar-nav.w-100.justify-content-evenly.justify-content-md-center
       .nav-item
         a.nav-link(href="/", rv-route-class-active="")= nav.home
       if (nav.links)
         each link in nav.links
           .nav-item
             a.nav-link(href="/" + link.page.data.attributes.slug, rv-route-class-active="")= link.label
+    //- Small devices
+    .d-flex.d-md-none.navbar-nav.w-100.justify-content-between.justify-content-center
+      bs5-toggle-button.mx-2(target-id="main-sidebar")
+        ul.nav.d-flex.justify-content-center
+          li.nav-item.d-flex.align-items-center
+            bs5-icon(src='/iconset/svg/icon_menu.svg', size='32', rv-hide='isActive', rv-on-click='toggle')
+          li.nav-item.d-flex.align-items-center
+            bs5-icon(src='/iconset/svg/icon_close.svg', size='32', rv-show='isActive', rv-on-click='toggle')
+      bs5-theme-button.mx-2(mode="icon")
+      bs5-share.mx-2.d-flex.align-items-center.justify-content-center(mode="icon" dropdown-direction="up", dropdown-alignment="start")
+        bs5-icon(src='/iconset/svg/social_share.svg', size='24', rv-on-click="share", role="button", aria-haspopup="true", aria-expanded="false")

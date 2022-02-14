@@ -4,7 +4,7 @@ import { PageService } from "../../services/page.service.ts";
 import { HomeService } from "../../services/home.service.ts";
 import { NavigationService } from "../../services/navigation.service.ts";
 import { SocialLinkService } from "../../services/sozial-link.service.ts";
-import { ContactService } from "../../services/contact.service.ts";
+import { OfficeService } from "../../services/office.service.ts";
 import { SettingsService } from "../../services/settings.service.ts";
 import { SeoService } from "../../services/seo.service.ts";
 import { ViewContext } from "../../types/view-context.ts";
@@ -15,7 +15,7 @@ export class ViewController {
     private readonly settings: SettingsService,
     private readonly nav: NavigationService,
     private readonly socialLink: SocialLinkService,
-    private readonly contact: ContactService,
+    private readonly office: OfficeService,
     private readonly home: HomeService,
     private readonly page: PageService,
     private readonly seo: SeoService,
@@ -93,12 +93,12 @@ export class ViewController {
     const settings = await this.settings.get();
     const nav = await this.nav.get();
     const socialLinks = await this.socialLink.list();
-    const contact = await this.contact.get();
+    const offices = await this.office.list();
     return {
       settings,
       nav,
       socialLinks,
-      contact,
+      offices,
     };
   }
 }

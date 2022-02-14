@@ -9,4 +9,4 @@ export interface Home extends StrapiDataBase {
   avatar?: StrapiRestAPIGet<StrapiImage>;
 }
 
-export type StrapiRestAPIHome = StrapiRestAPIGet<Home>;
+export type StrapiRestAPIGetHome = StrapiRestAPIGet<Home>;

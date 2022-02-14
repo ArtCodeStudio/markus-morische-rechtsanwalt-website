@@ -5,9 +5,9 @@ block content
     .container-fluid.container-lg.my-5
       .row
         .col-12.col-md.d-flex.align-items-center
-          .mx-md-5
-            if home.avatar && home.avatar.data.url
-              img.img-fluid.rounded-md-circle(loading="lazy", src= home.avatar.data.url, alt=home.avatar.data.alternativeText, title=home.avatar.data.alternativeText, width=home.avatar.data.width, height=home.avatar.data.height)
+          .mx-md-5.ratio.ratio-1x1
+            if home.avatar && home.avatar.data && home.avatar.data.attributes && home.avatar.data.attributes.url
+              img.img-fluid.rounded-md-circle(loading="lazy", src= home.avatar.data.attributes.url, alt=home.avatar.data.attributes.alternativeText, title=home.avatar.data.attributes.alternativeText, width=home.avatar.data.attributes.width, height=home.avatar.data.attributes.height)
         .col-12.col-md
           .row
             .col-12
@@ -15,9 +15,10 @@ block content
                 .fw-bold= home.title
                 .fw-light= home.subtitle
               .mt-5!= home.content
-          .row.my-5.d-block.d-md-none
-            .col-auto.text-center
-              .btn-group-vertical
-                a.btn.btn-outline-primary.my-2(href="mailto:" + contact.email) E-Mail schreiben
-                a.btn.btn-outline-primary.my-2(href="tel:" + contact.phoneNumber) Anrufen
-                a.btn.btn-outline-primary.my-2(href="/backend/api/contact") Kontakt herunterladen
+          each office of offices
+            .row.my-5.d-block.d-md-none
+              .col-auto.text-center
+                .btn-group-vertical
+                  a.btn.btn-outline-primary.my-2(href="mailto:" + office.email) E-Mail schreiben
+                  a.btn.btn-outline-primary.my-2(href="tel:" + office.phoneNumber) Anrufen
+                  a.btn.btn-outline-primary.my-2(href=`/backend/api/contact/${office.slug}` download=`${office.slug}.vcf`) Kontakt herunterladen

@@ -6,4 +6,4 @@ export interface Settings extends StrapiDataBase {
   maintenanceText: string;
 }
 
-export type StrapiRestAPISettings = StrapiRestAPIGet<Settings>;
+export type StrapiRestAPIGetSettings = StrapiRestAPIGet<Settings>;

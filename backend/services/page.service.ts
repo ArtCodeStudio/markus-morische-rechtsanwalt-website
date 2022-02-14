@@ -1,7 +1,7 @@
 import { Injectable, NotFoundError } from "alosaur/mod.ts";
 import { StrapiService } from "./strapi.service.ts";
 import { StrapiRestAPIListPage } from "../types/strapi-rest-api-page.ts";
-import { html, tokens } from "rusty_markdown/mod.ts";;
+import { html, tokens } from "rusty_markdown/mod.ts";
 
 @Injectable()
 export class PageService {
@@ -22,7 +22,6 @@ export class PageService {
         throw new NotFoundError(this.strapi.errorMessages.notFound);
       }
       const page = data[0].attributes;
-      console.debug("page", page);
       if (page.content) page.content = html(tokens(page.content));
       return page;
     } catch (error) {

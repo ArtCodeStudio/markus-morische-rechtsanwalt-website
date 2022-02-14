@@ -2,62 +2,46 @@ import { Injectable } from "alosaur/mod.ts";
 import { vCard } from "vcard/mod.ts";
 import { StrapiService } from "./strapi.service.ts";
 import { SocialLinkService } from "./sozial-link.service.ts";
-import { StrapiRestAPIContact, Contact } from "../types/strapi-rest-api-contact.ts";
-import { StrapiImage } from "../types/strapi-image.ts";
+import { OfficeService } from "./office.service.ts";
 import { SocialLink } from "../types/strapi-rest-api-social-link.ts";
 
 @Injectable()
 export class ContactService {
   private readonly strapi = new StrapiService("contact");
 
-  constructor(private readonly social: SocialLinkService) { }
+  constructor(private readonly office: OfficeService, private readonly social: SocialLinkService) { }
 
-  public async get() {
-    try {
-      const { data } = await this.strapi.get<StrapiRestAPIContact>();
-      const contact = data.attributes;
-      return contact;
-    } catch (error) {
-      throw error;
-    }
-  }
-
-  public async getVCard(contact?: Contact) {
-    contact ||= await this.get();
+  public async getVCard(slug: string) {
+    const office = await this.office.get(slug);
     const vcard = new vCard();
 
     vcard.version = "4.0";
 
-    vcard.email = contact.email;
-    vcard.workPhone = contact.phoneNumber;
-    vcard.workFax = contact.faxNumber;
-    vcard.firstName = contact.firstName;
-    vcard.lastName = contact.lastName;
-    vcard.title = contact.title;
-    vcard.url = contact.url;
+    vcard.email = office.email;
+    vcard.workPhone = office.phoneNumber;
+    vcard.workFax = office.faxNumber;
+    vcard.firstName = office.firstName;
+    vcard.lastName = office.lastName;
+    vcard.title = office.title;
+    vcard.url = office.url;
     vcard.workAddress = {
-      street: contact.street,
-      city: contact.city,
-      postalCode: contact.postalCode,
-      countryRegion: contact.countryRegion,
+      street: office.street,
+      city: office.city,
+      postalCode: office.postalCode,
+      countryRegion: office.countryRegion,
     };
 
     vcard.socialUrls = await this.getSocialUrls();
 
-    if (contact.photo) {
+    if (office.photo?.data?.attributes) {
       vcard.photo = {
-        url: this.strapi.getRemoteStrapiImageUrl(contact.photo.data),
-        mediaType: this.getImageType(contact.photo.data),
+        url: this.strapi.getRemoteStrapiImageUrl(office.photo.data.attributes),
+        mediaType: this.strapi.getImageType(office.photo.data.attributes),
         base64: false,
       };
     }
 
     return vcard.getFormattedString();
-  }
-
-  public getImageType(image: StrapiImage) {
-    const type = image.mime.replace("image/", "");
-    return type;
   }
 
   public async getSocialUrls(socialLinks?: SocialLink[]) {

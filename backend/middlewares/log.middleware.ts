@@ -17,7 +17,7 @@ export class Log implements MiddlewareTarget<unknown> {
 
   onPostRequest(context: Context<unknown>) {
     return new Promise<void>((resolve) => {
-      console.log(
+      console.info(
         (context as any)?.request?.url,
         context?.state,
         new Date().getTime() - this.date.getTime(),
