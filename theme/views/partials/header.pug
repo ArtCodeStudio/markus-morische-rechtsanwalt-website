@@ -10,11 +10,14 @@ mm-header
               img.img-fluid(role="logo" loading="lazy", src="/images/logo.svg", title="Logo", alt="Logo", width="394", height="220")
       .col-auto
         .row.h-100.d-flex.align-items-end.justify-content-center
-          each office of offices
+          if contact
             .d-none.d-md-block.col.text-end.text-nowrap
-              a(href="mailto:" + office.email)= office.email
+              a(href="mailto:" + contact.email)= contact.email
               br
-              a(href="tel:" + office.phoneNumber)= office.phoneLabel
+              each office, i in Array.from(offices)
+                a(href="tel:" + office.phoneNumber) #{office.phoneLabel} #{i}
+                if i < Array.from(offices).length - 1
+                  span.mx-2 |
           each social in socialLinks
             - var svgSrc = "/iconset/svg/" + social.icon + ".svg";
             .col.d-flex.align-items-center.justify-content-end

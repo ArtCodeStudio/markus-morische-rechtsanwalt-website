@@ -1,3 +1,7 @@
 mm-footer {
     display: block;
+    .dropup .dropdown-menu[data-bs-popper] {
+        right: 0;
+        left: unset;
+    }
 }

@@ -19,6 +19,7 @@ export interface Office extends StrapiDataBase {
   postalCode: string;
   countryRegion: string;
   photo?: StrapiRestAPIGet<StrapiImage>;
+  map: StrapiRestAPIGet<StrapiImage>;
 }
 
 export type StrapiRestAPIGetOffice = StrapiRestAPIGet<Office>;

@@ -23,6 +23,12 @@ export class StrapiService {
     options ||= {}
     const url = new URL(options.url?.toString() || this.baseUrl.toString());
 
+    if (options.populates) {
+      for (const populate of options.populates) {
+        url.searchParams.append("populate", populate);
+      }
+    }
+
     const response = await fetch(url);
     this.handleResponseError(response);
     const data = await response.json() as StrapiRestAPIError | T;

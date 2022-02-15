@@ -23,6 +23,12 @@ export class SeoService {
       if (options.page.content) seo.description = this.cutStr(this.stripHtml(options.page.content));
     }
 
+    if (options.template === "contact") {
+      seo.canonical = seo.canonical + "/contact";
+      seo.title += " - Kontakt";
+      // TODO: if (options.page.content) seo.description = this.cutStr(this.stripHtml(options.page.content));
+    }
+
     if (options.template === "home" && options.home) {
       seo.title = options.home.title + " - " + options.home.subtitle;
       if (options.home.avatar?.data) {

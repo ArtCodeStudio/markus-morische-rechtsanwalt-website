@@ -6,6 +6,7 @@ export interface SEO {
   type?: string;
   locale?: string;
   site_name?: string;
+  /** @deprecated */
   keywords?: string;
   image?: {
     url: string;

@@ -1,6 +1,7 @@
 import { ready } from "@ribajs/utils/src/dom";
 import { Riba, View, coreModule } from "@ribajs/core";
 import { routerModule, FadeTransition } from "@ribajs/router";
+import { extrasModule } from "@ribajs/extras";
 import { bs5Module } from "@ribajs/bs5";
 import { strapiModule } from "@ribajs/strapi";
 
@@ -43,6 +44,7 @@ export class CSRApp {
         defaultTransition: new FadeTransition(),
       })
     );
+    this.riba.module.regist(extrasModule.init({}));
     this.riba.module.regist(bs5Module.init({}));
     this.riba.module.regist(strapiModule.init({}));
 

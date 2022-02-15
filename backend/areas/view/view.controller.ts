@@ -7,7 +7,9 @@ import { SocialLinkService } from "../../services/sozial-link.service.ts";
 import { OfficeService } from "../../services/office.service.ts";
 import { SettingsService } from "../../services/settings.service.ts";
 import { SeoService } from "../../services/seo.service.ts";
-import { ViewContext } from "../../types/view-context.ts";
+
+import type { ViewContext } from "../../types/view-context.ts";
+import type { Office } from "../../types/strapi-rest-api-office.ts";
 
 @Controller()
 export class ViewController {
@@ -46,6 +48,7 @@ export class ViewController {
       return this.renderErrorPage(error, ctx);
     }
   }
+
   @Get("/:slug")
   public async renderDynamicPage(@Param("slug") slug: string) {
     const ctx: ViewContext = {
@@ -64,6 +67,30 @@ export class ViewController {
       const html = await View("templates/page", {
         ctx,
         page,
+        ...globals,
+        seo,
+      });
+      return html;
+    } catch (error) {
+      console.error(error);
+      return this.renderErrorPage(error, ctx);
+    }
+  }
+
+  @Get("/contact")
+  public async renderContactPage() {
+    const ctx: ViewContext = {};
+    try {
+      const globals = await this.getGlobals();
+      if (globals.settings.maintenanceMode) {
+        return this.renderMaintenancePage(globals);
+      }
+      const seo = this.seo.get({
+        template: "contact",
+        offices: globals.offices,
+      });
+      const html = await View("templates/contact", {
+        ctx,
         ...globals,
         seo,
       });
@@ -94,11 +121,18 @@ export class ViewController {
     const nav = await this.nav.get();
     const socialLinks = await this.socialLink.list();
     const offices = await this.office.list();
+    let contact: Partial<Office> = {};
+
+    for (const office of offices) {
+      contact = { ...contact, ...office }
+    }
+
     return {
       settings,
       nav,
       socialLinks,
       offices,
+      contact
     };
   }
 }

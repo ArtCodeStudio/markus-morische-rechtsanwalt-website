@@ -78,6 +78,17 @@
       "type": "email",
       "default": "post@markusmorische.de",
       "required": true
+    },
+    "map": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "routeUrl": {
+      "type": "string"
     }
   }
 }

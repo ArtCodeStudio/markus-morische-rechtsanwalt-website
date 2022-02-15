@@ -1,0 +1,47 @@
+extends ../layouts/main.pug
+
+block content
+  .container-fluid.container-lg.my-5
+    .row
+      each office in Array.from(offices)
+        .col-12
+          if office.map
+            mm-map
+              .card.mb-3.text-white.bg-dark.overflow-hidden
+                .row.g-0
+                  .col-md-4
+                    .card-body
+                      h1.h5.card-title!= office.city
+                      p.card-text
+                        if office.firstName && office.lastName
+                          | #{office.firstName} #{office.lastName}
+                          br
+                        if office.title
+                          small #{office.title}
+                          br
+                      p.card-text
+                        if office.street
+                          | #{office.street}
+                          br
+                        if office.postalCode && office.city
+                          | #{office.postalCode} #{office.city}
+                          br
+                        if office.street
+                          | #{office.street}
+                          br
+                      p.card-text
+                        if office.email
+                          a(href="mailto:" + office.email)!= office.email
+                          br
+                        if office.phoneNumber
+                          a(href="tel:" + office.phoneNumber) Tel: #{office.phoneLabel || office.phoneNumber}
+                          br
+                        if office.faxNumber
+                          a(href="fax:" + office.faxNumber) Fax: #{office.faxLabel || office.faxNumber}
+                          br
+                      if office.routeUrl
+                        a.card-link(href=office.routeUrl target="__blank", rel="nofollow") Anfahrt
+                      a.card-link(href=`/backend/api/contact/${office.slug}` download=`${office.slug}.vcf`) Kontakt
+                  .col-md-8
+                    .map-scroll-wrapper.scrollbar-invisible(rv-scrollbar-draggable, rv-element="scrollWrapperEl")
+                      img(src=office.map.data.attributes.url width=office.map.data.attributes.width / 3, height=office.map.data.attributes.height / 3, rv-on-load="center", draggable="false")

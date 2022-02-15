@@ -356,6 +356,9 @@
                               "home": {
                                 "type": "string"
                               },
+                              "contact": {
+                                "type": "string"
+                              },
                               "createdAt": {
                                 "type": "string",
                                 "format": "date-time"
@@ -1017,6 +1020,9 @@
                             "home": {
                               "type": "string"
                             },
+                            "contact": {
+                              "type": "string"
+                            },
                             "createdAt": {
                               "type": "string",
                               "format": "date-time"
@@ -1253,6 +1259,9 @@
                         }
                       },
                       "home": {
+                        "type": "string"
+                      },
+                      "contact": {
                         "type": "string"
                       },
                       "createdAt": {
