@@ -4082,7 +4082,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/typescript-estree", "virtual:9452c2c920783fa157716dca1e87b90d7adea046a4cd70d1bef1560c533b8ca3bf6591331a259c286267a5eac6d14ebe9389705144287a39933c4a7481f0c9a5#npm:4.33.0"],
             ["babel-loader", "virtual:9f09039c7b5674e7a61ae3499ba7b8f4ca4a20de8a4ff90d91c05fdb844eefb3838b5a95199bd9ec0ec93ede65ae90878681fbb65362bdde7f222c9ed243b298#npm:8.2.3"],
             ["babel-plugin-array-includes", "npm:2.0.3"],
-            ["bootstrap", "virtual:3827877e68a4dde2f3ca546246cbdfe25d9a2cc905efc1aab151212883667de5d7c30195e11c16911cc776828d4da948fd05728653b908af865b1e91f99a1127#npm:5.1.3"],
+            ["bootstrap", "virtual:879b23a6f845da22f16dde959920e72faf555130119fa6ac5dd5d9c69f35d8c40bb606bc6de1876cc92a19852ccfb4e4965b8be6c041147ba0e004a2add22197#https://github.com/twbs/bootstrap.git#commit=42da2b95566fe0377543120698e242f4756f648e"],
             ["css-loader", "virtual:9f09039c7b5674e7a61ae3499ba7b8f4ca4a20de8a4ff90d91c05fdb844eefb3838b5a95199bd9ec0ec93ede65ae90878681fbb65362bdde7f222c9ed243b298#npm:6.6.0"],
             ["eslint", "npm:7.32.0"],
             ["eslint-config-prettier", "virtual:f6ef8ae6b5332297fb4fd26d9da1f4439c6cee25ca458b817f2a39d275385a370ba7f4739ef6f4602df98edba1b5029b447cf1b062a13d4af7bb4fb463365c2a#npm:8.3.0"],
@@ -5090,7 +5090,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["babel-jest", "virtual:7bd6e32d489d870f1e877ddaf97e99910efa48b836011662c4c26be6526985972b240de166e86ba33cd7456a96d4eee4e15fc1311937f4a800b4b042fe0333a7#npm:27.5.1"],
             ["babel-loader", "virtual:879b23a6f845da22f16dde959920e72faf555130119fa6ac5dd5d9c69f35d8c40bb606bc6de1876cc92a19852ccfb4e4965b8be6c041147ba0e004a2add22197#npm:8.2.3"],
             ["babel-plugin-array-includes", "npm:2.0.3"],
-            ["bootstrap", "virtual:879b23a6f845da22f16dde959920e72faf555130119fa6ac5dd5d9c69f35d8c40bb606bc6de1876cc92a19852ccfb4e4965b8be6c041147ba0e004a2add22197#npm:4.6.1"],
+            ["bootstrap", "virtual:879b23a6f845da22f16dde959920e72faf555130119fa6ac5dd5d9c69f35d8c40bb606bc6de1876cc92a19852ccfb4e4965b8be6c041147ba0e004a2add22197#https://github.com/twbs/bootstrap.git#commit=42da2b95566fe0377543120698e242f4756f648e"],
             ["core-js", "npm:3.21.0"],
             ["eslint", "npm:8.8.0"],
             ["eslint-config-prettier", "virtual:6d3e0644440da2fe9f96cfbfd2fa4e909a8b7a356c934e0b78b45e4369a7460d00c473a4154754f9a0c3f290b160554648601ebdd85cbc0cd280d357724829eb#npm:8.3.0"],
@@ -5144,7 +5144,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["babel-jest", "virtual:7bd6e32d489d870f1e877ddaf97e99910efa48b836011662c4c26be6526985972b240de166e86ba33cd7456a96d4eee4e15fc1311937f4a800b4b042fe0333a7#npm:27.5.1"],
             ["babel-loader", "virtual:46de74deef6baae3c3e46a088f52d185c5d7eb66dc8faa79b93bf4ca21603794602fcec7e82d96e09fd761f185723c8c0ee82cc28b9236106fe7d6472260f985#npm:8.2.3"],
             ["babel-plugin-array-includes", "npm:2.0.3"],
-            ["bootstrap", "virtual:46de74deef6baae3c3e46a088f52d185c5d7eb66dc8faa79b93bf4ca21603794602fcec7e82d96e09fd761f185723c8c0ee82cc28b9236106fe7d6472260f985#npm:5.1.3"],
+            ["bootstrap", "virtual:46de74deef6baae3c3e46a088f52d185c5d7eb66dc8faa79b93bf4ca21603794602fcec7e82d96e09fd761f185723c8c0ee82cc28b9236106fe7d6472260f985#https://github.com/twbs/bootstrap.git#commit=42da2b95566fe0377543120698e242f4756f648e"],
             ["core-js", "npm:3.21.0"],
             ["eslint", "npm:8.8.0"],
             ["eslint-config-prettier", "virtual:6d3e0644440da2fe9f96cfbfd2fa4e909a8b7a356c934e0b78b45e4369a7460d00c473a4154754f9a0c3f290b160554648601ebdd85cbc0cd280d357724829eb#npm:8.3.0"],
@@ -6013,7 +6013,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@ribajs/shopify", "virtual:192e034a206a246f441377a63de039ebbfefbeac51f4247a659ea8dbb33f30ff3a3c76876b7e6da4cfbfbac8c0456928475c9c1d5dcc647481072731664b801f#workspace:packages/riba/packages/shopify"],
             ["@ribajs/shopify-easdk", "workspace:packages/riba/packages/shopify-easdk"],
             ["@ribajs/shopify-tda", "workspace:packages/riba/packages/shopify-tda"],
-            ["bootstrap", "virtual:3827877e68a4dde2f3ca546246cbdfe25d9a2cc905efc1aab151212883667de5d7c30195e11c16911cc776828d4da948fd05728653b908af865b1e91f99a1127#npm:5.1.3"],
+            ["bootstrap", "virtual:879b23a6f845da22f16dde959920e72faf555130119fa6ac5dd5d9c69f35d8c40bb606bc6de1876cc92a19852ccfb4e4965b8be6c041147ba0e004a2add22197#https://github.com/twbs/bootstrap.git#commit=42da2b95566fe0377543120698e242f4756f648e"],
             ["leaflet", "npm:1.7.1"]
           ],
           "linkType": "SOFT",
@@ -12607,37 +12607,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["bootstrap", [
-        ["npm:4.6.1", {
-          "packageLocation": "./.yarn/cache/bootstrap-npm-4.6.1-d0eec6985a-ff44e13787.zip/node_modules/bootstrap/",
+        ["https://github.com/twbs/bootstrap.git#commit=42da2b95566fe0377543120698e242f4756f648e", {
+          "packageLocation": "./.yarn/cache/bootstrap-https-42cd3510f3-19e207c97a.zip/node_modules/bootstrap/",
           "packageDependencies": [
-            ["bootstrap", "npm:4.6.1"]
+            ["bootstrap", "https://github.com/twbs/bootstrap.git#commit=42da2b95566fe0377543120698e242f4756f648e"]
           ],
           "linkType": "SOFT",
         }],
-        ["npm:5.1.3", {
-          "packageLocation": "./.yarn/cache/bootstrap-npm-5.1.3-691fdc19a6-301b5ed872.zip/node_modules/bootstrap/",
+        ["virtual:46de74deef6baae3c3e46a088f52d185c5d7eb66dc8faa79b93bf4ca21603794602fcec7e82d96e09fd761f185723c8c0ee82cc28b9236106fe7d6472260f985#https://github.com/twbs/bootstrap.git#commit=42da2b95566fe0377543120698e242f4756f648e", {
+          "packageLocation": "./.yarn/__virtual__/bootstrap-virtual-514841b08d/0/cache/bootstrap-https-42cd3510f3-19e207c97a.zip/node_modules/bootstrap/",
           "packageDependencies": [
-            ["bootstrap", "npm:5.1.3"]
-          ],
-          "linkType": "SOFT",
-        }],
-        ["virtual:3827877e68a4dde2f3ca546246cbdfe25d9a2cc905efc1aab151212883667de5d7c30195e11c16911cc776828d4da948fd05728653b908af865b1e91f99a1127#npm:5.1.3", {
-          "packageLocation": "./.yarn/__virtual__/bootstrap-virtual-64d78374e0/0/cache/bootstrap-npm-5.1.3-691fdc19a6-301b5ed872.zip/node_modules/bootstrap/",
-          "packageDependencies": [
-            ["bootstrap", "virtual:3827877e68a4dde2f3ca546246cbdfe25d9a2cc905efc1aab151212883667de5d7c30195e11c16911cc776828d4da948fd05728653b908af865b1e91f99a1127#npm:5.1.3"],
-            ["@popperjs/core", null],
-            ["@types/popperjs__core", null]
-          ],
-          "packagePeers": [
-            "@popperjs/core",
-            "@types/popperjs__core"
-          ],
-          "linkType": "HARD",
-        }],
-        ["virtual:46de74deef6baae3c3e46a088f52d185c5d7eb66dc8faa79b93bf4ca21603794602fcec7e82d96e09fd761f185723c8c0ee82cc28b9236106fe7d6472260f985#npm:5.1.3", {
-          "packageLocation": "./.yarn/__virtual__/bootstrap-virtual-cffe7721ad/0/cache/bootstrap-npm-5.1.3-691fdc19a6-301b5ed872.zip/node_modules/bootstrap/",
-          "packageDependencies": [
-            ["bootstrap", "virtual:46de74deef6baae3c3e46a088f52d185c5d7eb66dc8faa79b93bf4ca21603794602fcec7e82d96e09fd761f185723c8c0ee82cc28b9236106fe7d6472260f985#npm:5.1.3"],
+            ["bootstrap", "virtual:46de74deef6baae3c3e46a088f52d185c5d7eb66dc8faa79b93bf4ca21603794602fcec7e82d96e09fd761f185723c8c0ee82cc28b9236106fe7d6472260f985#https://github.com/twbs/bootstrap.git#commit=42da2b95566fe0377543120698e242f4756f648e"],
             ["@popperjs/core", "npm:2.11.2"],
             ["@types/popperjs__core", null]
           ],
@@ -12647,20 +12627,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:879b23a6f845da22f16dde959920e72faf555130119fa6ac5dd5d9c69f35d8c40bb606bc6de1876cc92a19852ccfb4e4965b8be6c041147ba0e004a2add22197#npm:4.6.1", {
-          "packageLocation": "./.yarn/__virtual__/bootstrap-virtual-9ef1ded9d6/0/cache/bootstrap-npm-4.6.1-d0eec6985a-ff44e13787.zip/node_modules/bootstrap/",
+        ["virtual:879b23a6f845da22f16dde959920e72faf555130119fa6ac5dd5d9c69f35d8c40bb606bc6de1876cc92a19852ccfb4e4965b8be6c041147ba0e004a2add22197#https://github.com/twbs/bootstrap.git#commit=42da2b95566fe0377543120698e242f4756f648e", {
+          "packageLocation": "./.yarn/__virtual__/bootstrap-virtual-87020e0bb3/0/cache/bootstrap-https-42cd3510f3-19e207c97a.zip/node_modules/bootstrap/",
           "packageDependencies": [
-            ["bootstrap", "virtual:879b23a6f845da22f16dde959920e72faf555130119fa6ac5dd5d9c69f35d8c40bb606bc6de1876cc92a19852ccfb4e4965b8be6c041147ba0e004a2add22197#npm:4.6.1"],
-            ["@types/jquery", null],
-            ["@types/popper.js", null],
-            ["jquery", null],
-            ["popper.js", "npm:1.16.1"]
+            ["bootstrap", "virtual:879b23a6f845da22f16dde959920e72faf555130119fa6ac5dd5d9c69f35d8c40bb606bc6de1876cc92a19852ccfb4e4965b8be6c041147ba0e004a2add22197#https://github.com/twbs/bootstrap.git#commit=42da2b95566fe0377543120698e242f4756f648e"],
+            ["@popperjs/core", null],
+            ["@types/popperjs__core", null]
           ],
           "packagePeers": [
-            "@types/jquery",
-            "@types/popper.js",
-            "jquery",
-            "popper.js"
+            "@popperjs/core",
+            "@types/popperjs__core"
           ],
           "linkType": "HARD",
         }]

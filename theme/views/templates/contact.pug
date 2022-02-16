@@ -4,12 +4,12 @@ block content
   .container-fluid.container-lg.my-5
     .row
       each office in Array.from(offices)
-        .col-12
+        .col-12.my-3
           if office.map
             mm-map
               .card.mb-3.text-white.bg-dark.overflow-hidden
                 .row.g-0
-                  .col-md-4
+                  .col-md-4.d-flex.flex-column.align-items-stretch
                     .card-body
                       h1.h5.card-title!= office.city
                       p.card-text
@@ -39,6 +39,7 @@ block content
                         if office.faxNumber
                           a(href="fax:" + office.faxNumber) Fax: #{office.faxLabel || office.faxNumber}
                           br
+                    .card-footer.pb-3.d-flex.justify-content-end
                       if office.routeUrl
                         a.card-link(href=office.routeUrl target="__blank", rel="nofollow") Anfahrt
                       a.card-link(href=`/backend/api/contact/${office.slug}` download=`${office.slug}.vcf`) Kontakt

@@ -15,10 +15,3 @@ block content
                 .fw-bold= home.title
                 .fw-light= home.subtitle
               .mt-5!= home.content
-          each office of offices
-            .row.my-5.d-block.d-md-none
-              .col-auto.text-center
-                .btn-group-vertical
-                  a.btn.btn-outline-primary.my-2(href="mailto:" + office.email) E-Mail schreiben
-                  a.btn.btn-outline-primary.my-2(href="tel:" + office.phoneNumber) Anrufen
-                  a.btn.btn-outline-primary.my-2(href=`/backend/api/contact/${office.slug}` download=`${office.slug}.vcf`) Kontakt herunterladen

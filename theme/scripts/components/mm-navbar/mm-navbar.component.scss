@@ -1,13 +1,8 @@
-mm-footer {
+mm-navbar {
     display: block;
     // Share dropup
     .dropup .dropdown-menu[data-bs-popper] {
         right: 0;
         left: unset;
-    }
-    .navbar-nav {
-        position: absolute;
-        left: 0;
-        right: 0;
     }
 }

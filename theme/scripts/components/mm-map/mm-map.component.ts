@@ -26,7 +26,6 @@ export class MMMapComponent extends Component {
   }
 
   public center() {
-    console.debug("center")
     if (this.scope.scrollWrapperEl) {
       scrollToPosition(this.scope.scrollWrapperEl, "center", "both", "auto")
     }
@@ -64,7 +63,6 @@ export class MMMapComponent extends Component {
     super.afterBind();
     this.center();
   }
-
 
   protected template() {
     return null;

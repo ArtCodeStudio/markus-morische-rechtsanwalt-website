@@ -146,3 +146,26 @@ $dark-list-group-hover-bg: $primary;
 
 $list-group-action-active-bg: $primary;
 $dark-list-group-action-active-bg: $primary;
+
+
+// Dropdown
+$dropdown-color:                    $dark;
+$dropdown-dark-color:               $light;
+
+$dropdown-bg:                       $light;
+$dropdown-dark-bg:                  $dark;
+
+$dropdown-dark-divider-bg:          $dropdown-divider-bg;
+$dropdown-dark-box-shadow:          null;
+$dropdown-dark-link-color:          $dropdown-dark-color;
+
+$dropdown-link-hover-color:         $dark;
+$dropdown-dark-link-hover-color:    $light;
+
+$dropdown-link-hover-bg:            $primary;
+$dropdown-dark-link-hover-bg:       $primary;
+
+$dropdown-dark-link-active-color:   $dropdown-link-active-color;
+$dropdown-dark-link-active-bg:      $dropdown-link-active-bg;
+$dropdown-dark-link-disabled-color: $gray-500;
+$dropdown-dark-header-color:        $gray-500;

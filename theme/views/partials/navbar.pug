@@ -1,0 +1,28 @@
+mm-navbar
+  navbar.fixed-bottom.navbar.navbar-expand.bg-dark.text-light.navbar-dark
+    .container-fluid.container-lg
+      .w-100
+        .row.flex-nowrap.justify-content-between
+          //- Left
+          .col-auto.d-flex.align-items-center.justify-content-start(rv-element="colHamburgerEl", style="min-width: 114px;")
+            bs5-toggle-button.me-2.d-md-none(target-id="main-sidebar")
+              ul.nav.d-flex.align-items-center.justify-content-center
+                li.nav-item.d-flex.align-items-center
+                  bs5-icon(src='/iconset/svg/icon_menu.svg', size='32', rv-hide='isActive', rv-on-click='toggle')
+                li.nav-item.d-flex.align-items-center
+                  bs5-icon(src='/iconset/svg/icon_close.svg', size='32', rv-show='isActive', rv-on-click='toggle')
+          //- Middle
+          .col.navbar-nav.d-none.d-md-flex.justify-content-center(rv-element="colNavEl")
+            .nav-item
+              a.nav-link(href="/", rv-route-class-active="'/'")= nav.home
+            .nav-item
+              a.nav-link(href="/contact", rv-route-class-active="'/contact'")= nav.contact
+            if (nav.links)
+              each link in nav.links
+                .nav-item
+                  a.nav-link(href=`/${link.page.data.attributes.slug}`, rv-route-class-active=`'/${link.page.data.attributes.slug}'`)= link.label
+          //- Right
+          .col-auto.d-flex.align-items-center.justify-content-end(rv-element="colToolsEl")
+            bs5-theme-button.mx-2(mode="icon")
+            bs5-share.mx-2.d-flex.align-items-center.justify-content-center(mode="icon" dropdown-direction="up", dropdown-alignment="start", title=`${contact.firtName} ${contact.lastName} - ${contact.title}`, text=`Schau' dir mal die Seite von dem Fachanwalt für Erbrecht an.`, label-clipboard="URL kopieren", label-email="E-Mail")
+              bs5-icon(src='/iconset/svg/social_share.svg', size='24', rv-on-click="share", role="button", aria-haspopup="true", aria-expanded="false")
