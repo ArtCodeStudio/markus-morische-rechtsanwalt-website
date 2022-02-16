@@ -8,6 +8,28 @@ Monorepo of website project for [markusmorische.de](https://markusmorische.de/) 
 
 This project is licensed under the AGPL license, except for the assets (logo, font, etc), which are private and the use of which is prohibited in all respects.
 
+## Submodules
+
+This repository has submodules, so you need to clone this repository including this submodules:
+
+```bash
+git clone --recursive https://github.com/ArtCodeStudio/markus-morische-rechtsanwalt-website.git
+```
+
+You can also clone the submodules afterwards:
+
+```bash
+git clone https://github.com/ArtCodeStudio/markus-morische-rechtsanwalt-website.git
+cd markus-morische-rechtsanwalt-website
+git submodule update --init --recursive
+```
+
+If you want to pull updates from this repository you should also pull the submodules:
+
+```bash
+git pull --recurse-submodules
+```
+
 ## Backend
 
 Tested with Deno v1.18.2, you can use [DVM](https://opensourcelibs.com/lib/dvm) to switch between different Deno versions:

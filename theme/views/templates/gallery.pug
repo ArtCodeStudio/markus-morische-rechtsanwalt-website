@@ -6,7 +6,7 @@ block content
       .col-12!= gallery.content
     .row
       bs5-photoswipe.col-12(open-image-on-click="true", control-next-icon-src="/iconset/svg/arrow_carrot_thin.svg", control-prev-icon-src="/iconset/svg/arrow_carrot_thin.svg", control-close-icon-src="/iconset/svg/icon_close.svg" control-zoom-in-icon-src="/iconset/svg/icon_plus.svg" control-zoom-out-icon-src="/iconset/svg/icon_minus.svg" control-fullscreen-on-icon-src="/iconset/svg/icon_toggle-fullscreen-on.svg" control-fullscreen-off-icon-src="/iconset/svg/icon_toggle-fullscreen-off.svg" control-share-icon-src="/iconset/svg/social_share.svg" control-share-icon-show="true" share-text="Schau' dir mal dieses Kunstwerk an 🙂", share-label-clipboard="In die Zwischenablage", share-label-email="E-Mail", share-label-download="Herunterladen")
-        .row.g-3(rv-image-events rv-masonry='{"percentPosition": true, "itemSelector": ".grid-item", "columnWidth": ".grid-sizer" }')
+        .row.g-4(rv-image-events rv-masonry='{"percentPosition": true, "itemSelector": ".grid-item", "columnWidth": ".grid-sizer" }')
           each image in gallery.images.data
             .grid-item.col-12.col-md-6.col-lg-3
               .card.hover-card.card-image.bg-transparent.border-0.cursor-pointer
