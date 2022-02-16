@@ -73,6 +73,7 @@ $theme-colors: (
 //   "info":       $info,
 //   "warning":    $warning,
 //   "danger":     $danger,
+  "green":      $green,
   "light":      $light,
   "dark":       $dark
 );
@@ -135,6 +136,9 @@ $dark-list-group-bg: transparent;
 $list-group-border-color: transparent;
 $dark-list-group-border-color: transparent;
 
+$list-group-active-border-color: transparent;
+$dark-list-group-active-border-color: transparent;
+
 $list-group-action-color: $dark;
 $list-group-action-hover-color: $dark;
 
@@ -147,6 +151,11 @@ $dark-list-group-hover-bg: $primary;
 $list-group-action-active-bg: $primary;
 $dark-list-group-action-active-bg: $primary;
 
+// Components
+$component-active-bg:               $primary;
+
+// Buttons
+$input-btn-focus-color:             $primary;
 
 // Dropdown
 $dropdown-color:                    $dark;
@@ -165,7 +174,11 @@ $dropdown-dark-link-hover-color:    $light;
 $dropdown-link-hover-bg:            $primary;
 $dropdown-dark-link-hover-bg:       $primary;
 
-$dropdown-dark-link-active-color:   $dropdown-link-active-color;
+$dropdown-link-active-color:        $dark;
+$dropdown-dark-link-active-color:   $light;
+
+$dropdown-link-active-bg:           $primary;
 $dropdown-dark-link-active-bg:      $dropdown-link-active-bg;
+
 $dropdown-dark-link-disabled-color: $gray-500;
 $dropdown-dark-header-color:        $gray-500;

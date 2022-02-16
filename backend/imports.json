@@ -5,6 +5,7 @@
     "dotenv/": "https://deno.land/x/dotenv@v3.2.0/",
     "std/": "https://deno.land/std@0.125.0/",
     "rusty_markdown/": "https://deno.land/x/rusty_markdown@v0.4.1/",
-    "vcard/": "https://deno.land/x/vcard@v1.0.7d/"
+    "vcard/": "https://deno.land/x/vcard@v1.0.7d/",
+    "qs/": "https://deno.land/x/deno_qs@0.0.1/"
   }
 }

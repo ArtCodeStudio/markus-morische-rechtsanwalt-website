@@ -13,14 +13,17 @@ mm-navbar
                   bs5-icon(src='/iconset/svg/icon_close.svg', size='32', rv-show='isActive', rv-on-click='toggle')
           //- Middle
           .col.navbar-nav.d-none.d-md-flex.justify-content-center(rv-element="colNavEl")
-            .nav-item
-              a.nav-link(href="/", rv-route-class-active="'/'")= nav.home
-            .nav-item
-              a.nav-link(href="/contact", rv-route-class-active="'/contact'")= nav.contact
             if (nav.links)
               each link in nav.links
-                .nav-item
-                  a.nav-link(href=`/${link.page.data.attributes.slug}`, rv-route-class-active=`'/${link.page.data.attributes.slug}'`)= link.label
+                if(link.page && link.page.data)
+                  .nav-item
+                    a.nav-link(href=`/${link.page.data.attributes.slug}`, rv-route-class-active=`'/${link.page.data.attributes.slug}'`)= link.label
+                else if(link.gallery && link.gallery.data)
+                  .nav-item
+                    a.nav-link(href=`/gallery/${link.gallery.data.attributes.slug}`, rv-route-class-active=`'/gallery/${link.gallery.data.attributes.slug}'`)= link.label
+                else if(link.url)
+                  .nav-item
+                    a.nav-link(href=link.url, rv-route-class-active=`'${link.url}'`)= link.label
           //- Right
           .col-auto.d-flex.align-items-center.justify-content-end(rv-element="colToolsEl")
             bs5-theme-button.mx-2(mode="icon")

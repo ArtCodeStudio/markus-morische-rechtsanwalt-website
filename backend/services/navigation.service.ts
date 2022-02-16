@@ -10,7 +10,22 @@ export class NavigationService {
 
   public async get() {
     try {
-      const { data } = await this.strapi.get<StrapiRestAPIGetNavigation>({ populates: ["links", "links.page"] });
+      const { data } = await this.strapi.get<StrapiRestAPIGetNavigation>({
+        query: {
+          populate: {
+            links: {
+              populate: {
+                page: {
+                  fields: ["slug"]
+                },
+                gallery: {
+                  fields: ["slug"]
+                },
+              }
+            }
+          }
+        }
+      });
       const nav = data.attributes;
       return nav;
     } catch (error) {

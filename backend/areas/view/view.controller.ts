@@ -1,6 +1,7 @@
 // deno-lint-ignore-file
 import { Controller, Get, HttpError, Param, View } from "alosaur/mod.ts";
 import { PageService } from "../../services/page.service.ts";
+import { GalleryService } from "../../services/gallery.service.ts";
 import { HomeService } from "../../services/home.service.ts";
 import { NavigationService } from "../../services/navigation.service.ts";
 import { SocialLinkService } from "../../services/sozial-link.service.ts";
@@ -20,6 +21,7 @@ export class ViewController {
     private readonly office: OfficeService,
     private readonly home: HomeService,
     private readonly page: PageService,
+    private readonly gallery: GalleryService,
     private readonly seo: SeoService,
   ) { }
 
@@ -91,6 +93,34 @@ export class ViewController {
       });
       const html = await View("templates/contact", {
         ctx,
+        ...globals,
+        seo,
+      });
+      return html;
+    } catch (error) {
+      console.error(error);
+      return this.renderErrorPage(error, ctx);
+    }
+  }
+
+  @Get("/gallery/:slug")
+  public async renderDynamicGallery(@Param("slug") slug: string) {
+    const ctx: ViewContext = {
+      slug,
+    };
+    try {
+      const globals = await this.getGlobals();
+      if (globals.settings.maintenanceMode) {
+        return this.renderMaintenancePage(globals);
+      }
+      const gallery = await this.gallery.get(slug);
+      const seo = this.seo.get({
+        template: "gallery",
+        gallery,
+      });
+      const html = await View("templates/gallery", {
+        ctx,
+        gallery,
         ...globals,
         seo,
       });

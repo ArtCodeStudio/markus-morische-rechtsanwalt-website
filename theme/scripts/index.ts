@@ -2,7 +2,9 @@ import { ready } from "@ribajs/utils/src/dom";
 import { Riba, View, coreModule } from "@ribajs/core";
 import { routerModule, FadeTransition } from "@ribajs/router";
 import { extrasModule } from "@ribajs/extras";
+import { masonryModule } from "@ribajs/masonry";
 import { bs5Module } from "@ribajs/bs5";
+import { bs5PhotoswipeModule } from "@ribajs/bs5-photoswipe";
 import { strapiModule } from "@ribajs/strapi";
 
 // Own
@@ -45,7 +47,9 @@ export class CSRApp {
       })
     );
     this.riba.module.regist(extrasModule.init({}));
+    this.riba.module.regist(masonryModule.init({}));
     this.riba.module.regist(bs5Module.init({}));
+    this.riba.module.regist(bs5PhotoswipeModule.init({}));
     this.riba.module.regist(strapiModule.init({}));
 
     this.view = this.riba.bind(document.body, this.model);

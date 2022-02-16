@@ -26,7 +26,15 @@ export class SeoService {
     if (options.template === "contact") {
       seo.canonical = seo.canonical + "/contact";
       seo.title += " - Kontakt";
+      console.debug("TODO seo for contact");
       // TODO: if (options.page.content) seo.description = this.cutStr(this.stripHtml(options.page.content));
+    }
+
+    if (options.template === "gallery" && options.gallery) {
+      seo.canonical = seo.canonical + "/gallery" + options.gallery.slug;
+      seo.title += " - Gallery";
+      console.debug("TODO seo for gallery");
+      // TODO: if (options.gallery.content) seo.description = this.cutStr(this.stripHtml(options.gallery.content));
     }
 
     if (options.template === "home" && options.home) {

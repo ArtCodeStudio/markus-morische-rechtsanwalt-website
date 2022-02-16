@@ -5,6 +5,7 @@ import { StrapiRestAPIList } from "../types/strapi-rest-api-list.ts";
 import { StrapiRestAPIRequestOptions } from "../types/strapi-rest-api-request-options.ts";
 import { StrapiImage } from "../types/strapi-image.ts";
 import { join } from "std/path/mod.ts";
+import { qs } from "qs/mod.ts";
 
 export class StrapiService {
   public readonly config = strapiConfig;
@@ -23,10 +24,8 @@ export class StrapiService {
     options ||= {}
     const url = new URL(options.url?.toString() || this.baseUrl.toString());
 
-    if (options.populates) {
-      for (const populate of options.populates) {
-        url.searchParams.append("populate", populate);
-      }
+    if (options.query) {
+      url.search = this.getQueryStr(options.query);
     }
 
     const response = await fetch(url);
@@ -43,10 +42,8 @@ export class StrapiService {
     options ||= {}
     const url = new URL(options.url?.toString() || this.baseUrl.toString());
 
-    if (options.populates) {
-      for (const populate of options.populates) {
-        url.searchParams.append("populate", populate);
-      }
+    if (options.query) {
+      url.search = this.getQueryStr(options.query);
     }
 
     const response = await fetch(url);
@@ -61,7 +58,12 @@ export class StrapiService {
 
   public async getBySlug<T = unknown>(slug: string, options?: StrapiRestAPIRequestOptions) {
     const url = new URL(this.baseUrl.toString());
-    url.search = `filters[slug][$eq]=${slug}`;
+    options ||= {};
+    options.query ||= {};
+    options.query.filters ||= {};
+    options.query.filters.slug = {
+      $eq: slug
+    }
     return await this.get<T>({ ...options, url });
   }
 
@@ -102,5 +104,10 @@ export class StrapiService {
   public getImageType(image: StrapiImage) {
     const type = image.mime.replace("image/", "");
     return type;
+  }
+
+  /** See https://docs.strapi.io/developer-docs/latest/developer-resources/database-apis-reference/rest/populating-fields.html */
+  private getQueryStr(query: StrapiRestAPIRequestOptions['query']) {
+    return qs.stringify(query, { encodeValuesOnly: true })
   }
 }

@@ -1,5 +1,13 @@
 export interface StrapiRestAPIRequestOptions {
     url?: URL | string;
-    populates?: string[];
-    filters?: { $eg?: string };
+    query?: {
+        fields?: string[];
+        populate?: any;
+        filters?: {
+            [prop: string]: {
+                $eq?: string
+            }
+        };
+    }
+
 }

@@ -9,14 +9,26 @@ export class OfficeService {
   constructor() { }
 
   public async list() {
-    const { data } = await this.strapi.list<StrapiRestAPIListOffice>({ populates: ["photo", "map"] });
+    const { data } = await this.strapi.list<StrapiRestAPIListOffice>({
+      query: {
+        populate: [
+          "photo", "map"
+        ]
+      }
+    });
     const offices = data.map((page) => this.transform(page.attributes));
     return Array.from(offices);
   }
 
   public async get(slug: string) {
     try {
-      const { data } = await this.strapi.getBySlug<StrapiRestAPIListOffice>(slug, { populates: ["photo", "map"] });
+      const { data } = await this.strapi.getBySlug<StrapiRestAPIListOffice>(slug, {
+        query: {
+          populate: [
+            "photo", "map"
+          ]
+        }
+      });
       if (!Array.isArray(data) || !data.length) {
         throw new NotFoundError(this.strapi.errorMessages.notFound);
       }

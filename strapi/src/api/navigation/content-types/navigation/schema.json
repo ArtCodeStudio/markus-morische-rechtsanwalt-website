@@ -16,16 +16,6 @@
       "type": "component",
       "repeatable": true,
       "component": "navigation.link"
-    },
-    "home": {
-      "type": "string",
-      "required": true,
-      "default": "Über"
-    },
-    "contact": {
-      "type": "string",
-      "required": true,
-      "default": "Kontakt"
     }
   }
 }

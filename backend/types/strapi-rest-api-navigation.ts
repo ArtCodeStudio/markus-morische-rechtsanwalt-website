@@ -3,8 +3,6 @@ import { StrapiRestAPIListNavigationLink } from "./strapi-rest-api-navigation-li
 import { StrapiDataBase } from "./strapi-data-base.ts";
 
 export interface Navigation extends StrapiDataBase {
-  home: string;
-  contact: string;
   links: StrapiRestAPIListNavigationLink;
 }
 
