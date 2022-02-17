@@ -43,14 +43,14 @@ dvm use 1.18.2
 
 ```bash
 cd backend
-deno run --allow-run scripts.ts start
+DENO_ENV=./.env.local deno run --allow-run scripts.ts start
 ```
 
 ### Watch
 
 ```bash
 cd backend
-deno run --allow-run scripts.ts watch
+DENO_ENV=./.env.local deno run --allow-run scripts.ts watch
 ```
 ## Strapi
 
@@ -65,13 +65,13 @@ nvm use 16
 
 ```bash
 cd strapi
-npm run build
+npm run build:local
 ```
 ### Start
 
 ```bash
 cd strapi
-npm run start
+npm run start:local
 ```
 
 ## Frontend

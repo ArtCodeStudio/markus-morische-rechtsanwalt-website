@@ -18,7 +18,28 @@
 
 server {
     root /var/www/html;
-    server_name strapi-dev.markusmorische.de dev.markusmorische.de; # managed by Certbot
+    server_name strapi-dev.markusmorische.de
+
+    client_max_body_size 1024M;
+
+    location / {
+        proxy_pass http://127.0.0.1:4002;
+        proxy_http_version 1.1;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $http_host;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
+        proxy_pass_request_headers on;    
+    }
+}
+
+server {
+    root /var/www/html;
+    server_name dev.markusmorische.de; # managed by Certbot
 
     client_max_body_size 1024M;
 
@@ -160,26 +181,15 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/markusmorische.de/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-
-
 }
 
 server {
-    if ($host = strapi-dev.markusmorische.de) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
-
-
     if ($host = dev.markusmorische.de) {
         return 301 https://$host$request_uri;
     } # managed by Certbot
 
 
-    server_name strapi-dev.markusmorische.de dev.markusmorische.de;
+    server_name dev.markusmorische.de;
     listen 80;
     return 404; # managed by Certbot
-
-
-
-
 }

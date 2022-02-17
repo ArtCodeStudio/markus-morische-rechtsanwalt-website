@@ -1,9 +1,11 @@
-import "dotenv/load.ts"; // Autoload .env file
+import { config as dotenv } from "dotenv/mod.ts"; // Autoload .env file
 import { AppSettings, ViewRenderConfig } from "alosaur/mod.ts";
 import { ViewArea } from "./areas/view/view.area.ts";
 import { ApiArea } from "./areas/backend/api/api.area.ts";
 import { Log } from "./middlewares/log.middleware.ts";
 import { compileFile, Options as PugOptions } from "pug/mod.ts";
+const DENO_ENV = Deno.env.get("DENO_ENV") || ".env";
+dotenv({ export: true, path: DENO_ENV })
 
 const VIEW_BASE_PATH = Deno.env.get("VIEW_BASE_PATH") ||
   `${Deno.cwd()}/../theme/views`;

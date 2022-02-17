@@ -35,7 +35,6 @@ export class PageService {
   private transform(page: Page) {
     if (page.content) page.content = html(tokens(page.content));
     if (page.image?.data?.attributes?.url) page.image.data.attributes.url = this.strapi.getRemoteStrapiImageUrl(page.image.data.attributes)
-    console.dir(page);
     return page;
   }
 }

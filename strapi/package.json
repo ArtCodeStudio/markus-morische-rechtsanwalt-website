@@ -7,8 +7,10 @@
     "develop": "ENV_PATH='./.env.prod' strapi develop",
     "start": "ENV_PATH='./.env.prod' strapi start",
     "start:dev": "ENV_PATH='./.env.dev' strapi start",
+    "start:local": "ENV_PATH='./.env.local' strapi start",
     "build": "cp ./.env.prod ./.env && strapi build && rm ./.env",
     "build:dev": "cp ./.env.dev ./.env && strapi build && rm ./.env",
+    "build:local": "cp ./.env.local ./.env && strapi build && rm ./.env",
     "strapi": "strapi"
   },
   "dependencies": {

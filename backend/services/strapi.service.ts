@@ -16,7 +16,11 @@ export class StrapiService {
 
   constructor(private readonly pathname: string) {
     const url = new URL(this.config.url.local);
-    url.pathname = join(url.pathname, this.pathname);
+    if (url.pathname.endsWith('api')) {
+      url.pathname = join(url.pathname, this.pathname);
+    } else {
+      url.pathname = join(url.pathname, 'api', this.pathname);
+    }
     this.baseUrl = url;
   }
 
