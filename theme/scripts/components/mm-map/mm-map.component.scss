@@ -1,8 +1,6 @@
 mm-map {
     display: block;
     max-width: 100%;
-    
-    
     .map-scroll-wrapper {
         max-width: 3000px;
         max-height: 400px;
@@ -10,6 +8,17 @@ mm-map {
         img {
             max-width: 3000px;
             object-fit: cover;
+        }
+    }
+
+    .map-copyright {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        color: $dark;
+        text-decoration: none;
+        &:hover {
+            color: $primary;
         }
     }
 }
