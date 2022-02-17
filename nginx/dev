@@ -18,10 +18,10 @@
 
 server {
     root /var/www/html;
-    server_name strapi.markusmorische.de www.markusmorische.de markusmorische.de; # managed by Certbot
+    server_name strapi-dev.markusmorische.de dev.markusmorische.de; # managed by Certbot
 
     location / {
-        proxy_pass http://127.0.0.1:3001;
+        proxy_pass http://127.0.0.1:4001;
         proxy_http_version 1.1;
         proxy_set_header X-Forwarded-Host $host;
         proxy_set_header X-Forwarded-Server $host;
@@ -36,7 +36,22 @@ server {
 
     location /api {
         rewrite ^/api/?(.*)$ /$1 break;
-        proxy_pass http://127.0.0.1:3002;
+        proxy_pass http://127.0.0.1:4002/api;
+        proxy_http_version 1.1;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $http_host;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
+        proxy_pass_request_headers on;
+    }
+
+    location /uploads {
+        rewrite ^/api/?(.*)$ /$1 break;
+        proxy_pass http://127.0.0.1:4002/uploads;
         proxy_http_version 1.1;
         proxy_set_header X-Forwarded-Host $host;
         proxy_set_header X-Forwarded-Server $host;
@@ -50,35 +65,7 @@ server {
     }
 
     location /admin {
-        proxy_pass http://127.0.0.1:3002/admin;
-        proxy_http_version 1.1;
-        proxy_set_header X-Forwarded-Host $host;
-        proxy_set_header X-Forwarded-Server $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header Host $http_host;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "Upgrade";
-        proxy_pass_request_headers on;
-    }
-
-    location /i18n {
-        proxy_pass http://127.0.0.1:3002/i18n;
-        proxy_http_version 1.1;
-        proxy_set_header X-Forwarded-Host $host;
-        proxy_set_header X-Forwarded-Server $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header Host $http_host;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "Upgrade";
-        proxy_pass_request_headers on;
-    }
-
-    location /content-manager {
-        proxy_pass http://127.0.0.1:3002/content-manager;
+        proxy_pass http://127.0.0.1:4002/admin;
         proxy_http_version 1.1;
         proxy_set_header X-Forwarded-Host $host;
         proxy_set_header X-Forwarded-Server $host;
@@ -92,7 +79,6 @@ server {
     }
 
 
-    listen [::]:443 ssl ipv6only=on; # managed by Certbot
     listen 443 ssl; # managed by Certbot
     ssl_certificate /etc/letsencrypt/live/markusmorische.de/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/markusmorische.de/privkey.pem; # managed by Certbot
@@ -100,25 +86,24 @@ server {
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
 
-
 }
 
 server {
-    if ($host = www.markusmorische.de) {
+    if ($host = strapi-dev.markusmorische.de) {
         return 301 https://$host$request_uri;
     } # managed by Certbot
 
 
-    if ($host = markusmorische.de) {
+    if ($host = dev.markusmorische.de) {
         return 301 https://$host$request_uri;
     } # managed by Certbot
 
-    if ($host = strapi.markusmorische.de) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
 
-    listen 80 ;
-    listen [::]:80 ;
-    server_name strapi.markusmorische.de www.markusmorische.de markusmorische.de;
+    server_name strapi-dev.markusmorische.de dev.markusmorische.de;
+    listen 80;
     return 404; # managed by Certbot
+
+
+
+
 }
