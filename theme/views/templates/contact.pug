@@ -2,7 +2,9 @@ extends ../layouts/main.pug
 
 block content
   .container-fluid.container-lg.my-5
-    .row
+    section.row
+      header.col-12.mt-5
+        h1 Kontakt
       each office in Array.from(offices)
         .col-12.my-3
           if office.map
@@ -10,8 +12,8 @@ block content
               .card.mb-3.text-white.bg-dark.overflow-hidden
                 .row.g-0
                   .col-md-4.d-flex.flex-column.align-items-stretch
-                    .card-body
-                      h1.h5.card-title!= office.city
+                    address.card-body
+                      h2.h5.card-title!= office.city
                       p.card-text
                         if office.firstName && office.lastName
                           | #{office.firstName} #{office.lastName}
@@ -26,6 +28,7 @@ block content
                         if office.postalCode && office.city
                           | #{office.postalCode} #{office.city}
                           br
+                    .card-body
                       p.card-text
                         if office.email
                           a(href="mailto:" + office.email)!= office.email

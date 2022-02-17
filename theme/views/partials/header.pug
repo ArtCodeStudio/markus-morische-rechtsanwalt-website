@@ -1,5 +1,5 @@
 mm-header
-  .container-fluid.container-lg
+  header.container-fluid.container-lg
     .row
       .col
         mm-logo.py-2
@@ -21,5 +21,5 @@ mm-header
           each social in socialLinks
             - var svgSrc = "/iconset/svg/" + social.icon + ".svg";
             .col.d-flex.align-items-center.justify-content-end
-              a(href=social.url, target="_blank")
+              a(href=social.url, target="_blank", rel="nofollow")
                 bs5-icon(src=svgSrc, size="32")

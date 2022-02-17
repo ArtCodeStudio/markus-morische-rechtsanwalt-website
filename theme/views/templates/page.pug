@@ -2,9 +2,14 @@ extends ../layouts/main.pug
 
 block content
   .container-fluid.container-lg.my-5
-    .row
+    section.row
       if page && page.image && page.image.data && page.image.data.attributes && page.image.data.attributes.url
         .col-12.col-md.d-flex.align-items-center
           .mx-md-5.ratio.ratio-1x1
             img.img-fluid.rounded-md-circle(loading="lazy", src=page.image.data.attributes.url, alt=page.image.data.attributes.alternativeText, title=page.image.data.attributes.alternativeText, width=page.image.data.attributes.width, height=page.image.data.attributes.height)
-      .col-12.col-md.mt-5!= page.content
+      .col-12.col-md.mt-5
+        if page.name
+          header
+            h1!= page.name
+        if page.content
+          div!= page.content

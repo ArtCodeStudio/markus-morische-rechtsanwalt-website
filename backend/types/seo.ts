@@ -1,4 +1,7 @@
-// deno-lint-ignore-file
+import { SEOAudio } from "./seo-audio.ts";
+import { SEOImage } from "./seo-image.ts";
+import { SEOVideo } from "./seo-video.ts";
+
 export interface SEO {
   canonical?: string;
   title?: string;
@@ -8,23 +11,7 @@ export interface SEO {
   site_name?: string;
   /** @deprecated */
   keywords?: string;
-  image?: {
-    url: string;
-    secure_url: string;
-    type: string;
-    width: number;
-    height: number;
-    alt: string;
-  };
-  video?: {
-    url: string;
-    secure_url: string;
-    type: string;
-    width: number;
-    height: number;
-  };
-  audio?: {
-    url: string;
-    secure_url: string;
-  };
+  images: SEOImage[];
+  videos: SEOVideo[];
+  audios: SEOAudio[];
 }

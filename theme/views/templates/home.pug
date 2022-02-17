@@ -10,8 +10,11 @@ block content
               img.img-fluid.rounded-md-circle(loading="lazy", src= home.avatar.data.attributes.url, alt=home.avatar.data.attributes.alternativeText, title=home.avatar.data.attributes.alternativeText, width=home.avatar.data.attributes.width, height=home.avatar.data.attributes.height)
         .col-12.col-md
           .row
-            .col-12
-              h1.display-2.mt-5.my-md-0
-                .fw-bold= home.title
-                .fw-light= home.subtitle
+            section.col-12
+              if home.title
+                header
+                  h1.display-2.mt-5.my-md-0
+                    .fw-bold= home.title
+                    if home.subtitle
+                      .fw-light= home.subtitle
               .mt-5!= home.content

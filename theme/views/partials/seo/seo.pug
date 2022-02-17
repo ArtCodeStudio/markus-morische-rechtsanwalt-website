@@ -1,0 +1,10 @@
+if seo
+    if seo.canonical
+        link(rel="canonical", href=seo.canonical)
+    if seo.title
+        title= seo.title
+    if seo.description
+        meta(name="description", content=seo.description)
+    if seo.keywords
+        //- Deprecated
+        meta(name="keywords" content=seo.keywords)
