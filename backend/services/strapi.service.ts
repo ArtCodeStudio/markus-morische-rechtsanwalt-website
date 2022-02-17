@@ -96,7 +96,11 @@ export class StrapiService {
   }
 
   public getRemoteStrapiImageUrl(image: StrapiImage) {
+    if (image.url.startsWith(this.config.url.remote)) {
+      return image.url;
+    }
     const url = new URL(this.config.url.remote);
+    // TODO this overwrites /api
     url.pathname = /*url.pathname +*/ image.url;
     return url.toString();
   }
