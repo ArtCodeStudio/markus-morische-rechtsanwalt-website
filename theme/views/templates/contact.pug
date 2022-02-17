@@ -26,9 +26,6 @@ block content
                         if office.postalCode && office.city
                           | #{office.postalCode} #{office.city}
                           br
-                        if office.street
-                          | #{office.street}
-                          br
                       p.card-text
                         if office.email
                           a(href="mailto:" + office.email)!= office.email

@@ -20,6 +20,8 @@ server {
     root /var/www/html;
     server_name strapi-dev.markusmorische.de dev.markusmorische.de; # managed by Certbot
 
+    client_max_body_size 1024M;
+
     location / {
         proxy_pass http://127.0.0.1:4001;
         proxy_http_version 1.1;
@@ -37,6 +39,21 @@ server {
     location /api {
         rewrite ^/api/?(.*)$ /$1 break;
         proxy_pass http://127.0.0.1:4002/api;
+        proxy_http_version 1.1;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $http_host;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
+        proxy_pass_request_headers on;
+    }
+
+    location /upload {
+        rewrite ^/api/?(.*)$ /$1 break;
+        proxy_pass http://127.0.0.1:4002/upload;
         proxy_http_version 1.1;
         proxy_set_header X-Forwarded-Host $host;
         proxy_set_header X-Forwarded-Server $host;
@@ -78,6 +95,65 @@ server {
         proxy_pass_request_headers on;
     }
 
+    location /i18n {
+        rewrite ^/api/?(.*)$ /$1 break;
+        proxy_pass http://127.0.0.1:4002/i18n;
+        proxy_http_version 1.1;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $http_host;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
+        proxy_pass_request_headers on;
+    }
+
+    location /content-manager {
+        rewrite ^/api/?(.*)$ /$1 break;
+        proxy_pass http://127.0.0.1:4002/content-manager;
+        proxy_http_version 1.1;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $http_host;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
+        proxy_pass_request_headers on;
+    }
+
+    location /content-type-builder {
+        rewrite ^/api/?(.*)$ /$1 break;
+        proxy_pass http://127.0.0.1:4002/content-type-builder;
+        proxy_http_version 1.1;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $http_host;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
+        proxy_pass_request_headers on;
+    }
+
+    location /documentation {
+        rewrite ^/api/?(.*)$ /$1 break;
+        proxy_pass http://127.0.0.1:4002/documentation;
+        proxy_http_version 1.1;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Server $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $http_host;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
+        proxy_pass_request_headers on;
+    }
 
     listen 443 ssl; # managed by Certbot
     ssl_certificate /etc/letsencrypt/live/markusmorische.de/fullchain.pem; # managed by Certbot
