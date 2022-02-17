@@ -41,8 +41,8 @@ export class OfficeService {
   }
 
   private transform(office: Office) {
-    if (office.photo?.data?.attributes?.url) office.photo.data.attributes.url = this.strapi.getRemoteStrapiImageUrl(office.photo?.data?.attributes);
-    if (office.map?.data?.attributes?.url) office.map.data.attributes.url = this.strapi.getRemoteStrapiImageUrl(office.map?.data?.attributes);
+    if (office.photo?.data?.attributes?.url) office.photo.data.attributes.url = this.strapi.getRemoteStrapiImageUrl(office.photo.data.attributes);
+    if (office.map?.data?.attributes?.url) office.map.data.attributes.url = this.strapi.getRemoteStrapiImageUrl(office.map.data.attributes);
     return office;
   }
 }
