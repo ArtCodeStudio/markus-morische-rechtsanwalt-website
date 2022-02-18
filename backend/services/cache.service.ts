@@ -5,7 +5,7 @@ import { Cache, IndexSignatureKey } from "local_cache/mod.ts";
 export class CacheService<K extends IndexSignatureKey, V> extends Cache<K, V> {
     constructor() {
         // global ttl of 30 seconds
-        super(30000);
+        super(-1); // Endless ttl
         console.debug("Create new cache service");
     }
 }
