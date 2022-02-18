@@ -6,6 +6,7 @@
     "std/": "https://deno.land/std@0.125.0/",
     "rusty_markdown/": "https://deno.land/x/rusty_markdown@v0.4.1/",
     "vcard/": "https://deno.land/x/vcard@v1.0.7d/",
-    "qs/": "https://deno.land/x/deno_qs@0.0.1/"
+    "qs/": "https://deno.land/x/deno_qs@0.0.1/",
+    "local_cache/": "https://deno.land/x/local_cache@1.0/"
   }
 }

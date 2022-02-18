@@ -1,15 +1,20 @@
-import { Injectable } from "alosaur/mod.ts";
+import { Singleton } from "alosaur/mod.ts";
 import { vCard } from "vcard/mod.ts";
 import { StrapiService } from "./strapi.service.ts";
 import { SocialLinkService } from "./sozial-link.service.ts";
 import { OfficeService } from "./office.service.ts";
+import { CacheService } from "./cache.service.ts";
 import { SocialLink } from "../types/strapi-rest-api-social-link.ts";
+import { StrapiRestAPIGetContact, Contact } from "../types/strapi-rest-api-contact.ts";
 
-@Injectable()
+/**
+ * @see https://deno.land/x/local_cache@1.0
+ */
+@Singleton()
 export class ContactService {
   private readonly strapi = new StrapiService("contact");
 
-  constructor(private readonly office: OfficeService, private readonly social: SocialLinkService) { }
+  constructor(private readonly office: OfficeService, private readonly social: SocialLinkService, private readonly cache: CacheService<string, Contact>) { }
 
   public async getVCard(slug: string) {
     const office = await this.office.get(slug);
@@ -42,6 +47,45 @@ export class ContactService {
     }
 
     return vcard.getFormattedString();
+  }
+
+  public async _get() {
+    try {
+      const { data } = await this.strapi.get<StrapiRestAPIGetContact>({
+        query: {
+          populate: {
+            offices: {
+              populate: ["map"]
+            }
+          }
+        }
+      });
+      const page = data.attributes;
+      return this.transform(page);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  public async get() {
+    const key = `${this.strapi.baseUrl.pathname}`;
+    if (this.cache.has(key)) {
+      return this.cache.get(key);
+    }
+
+    const contact = await this._get();
+    this.cache.set(key, contact);
+    return this.cache.get(key);
+  }
+
+  private transform(contact: Contact) {
+    if (contact.content) contact.content = this.strapi.renderMarkdown(contact.content);
+
+    contact.offices.data = contact.offices.data.map((officeObj) => {
+      officeObj.attributes = this.office.transform(officeObj.attributes);
+      return officeObj;
+    });
+    return contact;
   }
 
   public async getSocialUrls(socialLinks?: SocialLink[]) {

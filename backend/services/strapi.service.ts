@@ -6,10 +6,11 @@ import { StrapiRestAPIRequestOptions } from "../types/strapi-rest-api-request-op
 import { StrapiImage } from "../types/strapi-image.ts";
 import { join } from "std/path/mod.ts";
 import { qs } from "qs/mod.ts";
+import { html, tokens } from "rusty_markdown/mod.ts";
 
 export class StrapiService {
   public readonly config = strapiConfig;
-  private baseUrl: URL;
+  public baseUrl: URL;
   public errorMessages = {
     notFound: `Not found!`,
   };
@@ -117,5 +118,9 @@ export class StrapiService {
   /** See https://docs.strapi.io/developer-docs/latest/developer-resources/database-apis-reference/rest/populating-fields.html */
   private getQueryStr(query: StrapiRestAPIRequestOptions['query']) {
     return qs.stringify(query, { encodeValuesOnly: true })
+  }
+
+  public renderMarkdown(content: string) {
+    return content = html(tokens(content));
   }
 }

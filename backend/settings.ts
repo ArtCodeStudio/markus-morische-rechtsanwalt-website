@@ -1,5 +1,6 @@
 import { config as dotenv } from "dotenv/mod.ts"; // Autoload .env file
 import { AppSettings, ViewRenderConfig } from "alosaur/mod.ts";
+import { ResponseCacheStoreToken, MemoryResponseCacheStore } from "alosaur/src/hooks/response-cache/mod.ts";
 import { ViewArea } from "./areas/view/view.area.ts";
 import { ApiArea } from "./areas/backend/api/api.area.ts";
 import { Log } from "./middlewares/log.middleware.ts";
@@ -27,6 +28,12 @@ const STRAPI_LOCAL_URL = Deno.env.get("STRAPI_LOCAL_URL") ||
 
 export const appSettings: AppSettings = {
   areas: [ViewArea, ApiArea],
+  // TODO: Fix: https://github.com/alosaur/alosaur/issues/180
+  // See also https://github.com/alosaur/alosaur/tree/master/src/hooks/response-cache
+  providers: [{
+    token: ResponseCacheStoreToken,
+    useClass: MemoryResponseCacheStore,
+  }],
   middlewares: [Log],
   logging: LOGGING,
   staticConfig: {

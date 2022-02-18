@@ -1,17 +1,20 @@
 // deno-lint-ignore-file
 import { Controller, Get, HttpError, Param, View } from "alosaur/mod.ts";
+import { ResponseCache } from "alosaur/src/hooks/response-cache/mod.ts";
 import { PageService } from "../../services/page.service.ts";
 import { GalleryService } from "../../services/gallery.service.ts";
 import { HomeService } from "../../services/home.service.ts";
 import { NavigationService } from "../../services/navigation.service.ts";
 import { SocialLinkService } from "../../services/sozial-link.service.ts";
 import { OfficeService } from "../../services/office.service.ts";
+import { ContactService } from "../../services/contact.service.ts";
 import { SettingsService } from "../../services/settings.service.ts";
 import { SeoService } from "../../services/seo.service.ts";
 
 import type { ViewContext } from "../../types/view-context.ts";
 import type { Office } from "../../types/strapi-rest-api-office.ts";
 
+// TODO use cache service
 @Controller()
 export class ViewController {
   constructor(
@@ -19,6 +22,7 @@ export class ViewController {
     private readonly nav: NavigationService,
     private readonly socialLink: SocialLinkService,
     private readonly office: OfficeService,
+    private readonly contact: ContactService,
     private readonly home: HomeService,
     private readonly page: PageService,
     private readonly gallery: GalleryService,
@@ -26,6 +30,8 @@ export class ViewController {
   ) { }
 
   @Get("/")
+  // TODO: Fix: https://github.com/alosaur/alosaur/issues/180
+  // @ResponseCache({ duration: 2000 })
   public async renderHomePage() {
     const ctx: ViewContext = {};
     try {
@@ -52,6 +58,8 @@ export class ViewController {
   }
 
   @Get("/:slug")
+  // TODO: Fix: https://github.com/alosaur/alosaur/issues/180
+  // @ResponseCache({ duration: 2000 })
   public async renderDynamicPage(@Param("slug") slug: string) {
     const ctx: ViewContext = {
       slug,
@@ -80,6 +88,8 @@ export class ViewController {
   }
 
   @Get("/contact")
+  // TODO: Fix: https://github.com/alosaur/alosaur/issues/180
+  // @ResponseCache({ duration: 2000 })
   public async renderContactPage() {
     const ctx: ViewContext = {};
     try {
@@ -87,13 +97,15 @@ export class ViewController {
       if (globals.settings.maintenanceMode) {
         return this.renderMaintenancePage(globals);
       }
+      const contact = await this.contact.get();
       const seo = this.seo.get({
         template: "contact",
-        offices: globals.offices,
+        contact,
       });
       const html = await View("templates/contact", {
         ctx,
         ...globals,
+        contact,
         seo,
       });
       return html;
@@ -104,6 +116,8 @@ export class ViewController {
   }
 
   @Get("/gallery/:slug")
+  // TODO: Fix: https://github.com/alosaur/alosaur/issues/180
+  // @ResponseCache({ duration: 2000 })
   public async renderDynamicGallery(@Param("slug") slug: string) {
     const ctx: ViewContext = {
       slug,
