@@ -24,6 +24,16 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::office.office"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "openGraph": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.open-graph"
     }
   }
 }

@@ -1,4 +1,4 @@
-export interface SEOAudio {
+export interface OpenGraphAudio {
     url: string;
     secure_url: string;
 }

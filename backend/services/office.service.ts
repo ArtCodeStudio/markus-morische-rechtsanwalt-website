@@ -17,6 +17,9 @@ export class OfficeService {
         ]
       }
     });
+    if (!data) {
+      return [];
+    }
     const offices = data.map((page) => this.transform(page.attributes));
     return Array.from(offices);
   }

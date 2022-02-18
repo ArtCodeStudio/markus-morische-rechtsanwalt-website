@@ -55,7 +55,7 @@ export class ContactService {
         query: {
           populate: {
             offices: {
-              populate: ["map"]
+              populate: ["map", "seo", "openGraph", "openGraph.images"]
             }
           }
         }
@@ -81,7 +81,7 @@ export class ContactService {
   private transform(contact: Contact) {
     if (contact.content) contact.content = this.strapi.renderMarkdown(contact.content);
 
-    contact.offices.data = contact.offices.data.map((officeObj) => {
+    if (contact.offices.data) contact.offices.data = contact.offices.data.map((officeObj) => {
       officeObj.attributes = this.office.transform(officeObj.attributes);
       return officeObj;
     });

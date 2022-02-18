@@ -1,18 +1,18 @@
-if seo
-    if seo.canonical
-        meta(property="og:url", content=seo.canonical)
-    if seo.title
-        meta(property="og:title", content=seo.title)
-        title= seo.title
-    if seo.description
-        meta(property="og:description", content=seo.description)
-    if seo.type
-        meta(property="og:type", content=seo.type)
-    if seo.site_name
-        meta(property="og:site_name", content=seo.site_name)
+if og
+    if og.canonical
+        meta(property="og:url", content=og.canonical)
+    if og.title
+        meta(property="og:title", content=og.title)
+        title= og.title
+    if og.description
+        meta(property="og:description", content=og.description)
+    if og.type
+        meta(property="og:type", content=og.type)
+    if og.site_name
+        meta(property="og:site_name", content=og.site_name)
     //- Image
-    if seo.images
-        each image in seo.images
+    if og.images
+        each image in og.images
             if image.url
                 meta(property="og:image", content=image.url)
                 meta(property="og:image:url", content=image.url)
@@ -27,8 +27,8 @@ if seo
             if image.alt
                 meta(property="og:image:alt", content=image.alt)
     //- Video
-    if seo.videos
-        each video in seo.videos
+    if og.videos
+        each video in og.videos
             if video.url
                 meta(property="og:video", content=video.url)
                 meta(property="og:video:url", content=video.url)
@@ -41,11 +41,11 @@ if seo
             if video.height
                 meta(property="og:video:height", content=video.height)
     //- Audio
-    if seo.audios
-        each audio in seo.audios
+    if og.audios
+        each audio in og.audios
             if audio.url
                 meta(property="og:audio", content=audio)
                 meta(property="og:audio:url", content=audio.url)
             if audio.secure_url
                 meta(property="og:audio:secure_url", content=audio.secure_url)
-            if seo.video.type
+            if og.video.type

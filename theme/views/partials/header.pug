@@ -10,9 +10,9 @@ mm-header
               img.img-fluid(role="logo" loading="lazy", src="/images/logo.svg", title="Logo", alt="Logo", width="394", height="220")
       .col-auto
         .row.h-100.d-flex.align-items-end.justify-content-center
-          if contact
+          if email
             .d-none.d-md-block.col.text-end.text-nowrap
-              a(href="mailto:" + contact.email)= contact.email
+              a(href="mailto:" + email)!= email
               br
               each office, i in Array.from(offices)
                 a(href="tel:" + office.phoneNumber) #{office.phoneLabel} #{i}

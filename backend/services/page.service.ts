@@ -11,6 +11,9 @@ export class PageService {
 
   public async _list() {
     const { data } = await this.strapi.list<StrapiRestAPIListPage>();
+    if (!data) {
+      return [];
+    }
     const pages = data.map((page) => this.transform(page.attributes));
     return pages;
   }
@@ -30,7 +33,7 @@ export class PageService {
     try {
       const { data } = await this.strapi.getBySlug<StrapiRestAPIListPage>(slug, {
         query: {
-          populate: ["image"]
+          populate: ["image", "seo", "openGraph", "openGraph.images"]
         }
       });
       if (!Array.isArray(data) || !data.length) {

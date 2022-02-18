@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_seo_open_graphs",
+  "info": {
+    "displayName": "openGraph",
+    "icon": "share-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "website",
+        "article",
+        "book",
+        "profile",
+        "music_song",
+        "music_album",
+        "music_playlist",
+        "music_radio_station",
+        "video_movie",
+        "video_episode",
+        "video_tv_show",
+        "video_other"
+      ],
+      "default": "website",
+      "required": true
+    },
+    "site_name": {
+      "type": "string",
+      "default": "Markus Morische - Fachanwalt für Erbrecht",
+      "required": false
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

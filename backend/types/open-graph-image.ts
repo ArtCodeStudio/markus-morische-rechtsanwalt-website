@@ -1,4 +1,4 @@
-export interface SEOImage {
+export interface OpenGraphImage {
   url: string;
   secure_url: string;
   type: string;

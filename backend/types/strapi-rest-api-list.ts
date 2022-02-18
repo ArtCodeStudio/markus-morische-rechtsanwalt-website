@@ -3,7 +3,7 @@ export interface StrapiRestAPIList<A> {
   data: {
     id: number;
     attributes: A;
-  }[]
+  }[] | null
   meta: {
     pagination: {
       page: number;

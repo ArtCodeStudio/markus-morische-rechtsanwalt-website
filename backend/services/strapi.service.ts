@@ -100,7 +100,10 @@ export class StrapiService {
     }
   }
 
-  public getRemoteStrapiImageUrl(image: StrapiImage) {
+  public getRemoteStrapiImageUrl(image?: StrapiImage) {
+    if (!image) {
+      return "";
+    }
     if (image.url.startsWith(this.config.url.remote)) {
       return image.url;
     }
@@ -110,9 +113,13 @@ export class StrapiService {
     return url.toString();
   }
 
-  public getImageType(image: StrapiImage) {
+  public static getImageType(image: StrapiImage) {
     const type = image.mime.replace("image/", "");
     return type;
+  }
+
+  public getImageType(image: StrapiImage) {
+    return StrapiService.getImageType(image);
   }
 
   /** See https://docs.strapi.io/developer-docs/latest/developer-resources/database-apis-reference/rest/populating-fields.html */

@@ -1,4 +1,4 @@
-export interface SEOVideo {
+export interface OpenGraphVideo {
   url: string;
   secure_url: string;
   type: string;

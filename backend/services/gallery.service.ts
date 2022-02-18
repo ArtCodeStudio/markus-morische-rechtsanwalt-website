@@ -11,6 +11,9 @@ export class GalleryService {
 
   private async _list() {
     const { data } = await this.strapi.list<StrapiRestAPIListGallery>();
+    if (!data) {
+      return [];
+    }
     const galleries = data.map((gallery) => this.transform(gallery.attributes));
     return galleries;
   }
@@ -30,7 +33,7 @@ export class GalleryService {
     try {
       const { data } = await this.strapi.getBySlug<StrapiRestAPIListGallery>(slug, {
         query: {
-          populate: ["images"]
+          populate: ["images", "seo", "openGraph", "openGraph.images"]
         }
       });
       if (!Array.isArray(data) || !data.length) {
@@ -55,11 +58,13 @@ export class GalleryService {
   }
 
   private transform(gallery: Gallery) {
-    if (gallery.images) gallery.images.data.map((data) => {
+    if (gallery.images.data) gallery.images.data.map((data) => {
       data.attributes.url = this.strapi.getRemoteStrapiImageUrl(data.attributes);
       return data;
     })
     if (gallery.content) gallery.content = this.strapi.renderMarkdown(gallery.content);
+    console.debug("gallery");
+    console.dir(gallery);
     return gallery;
   }
 }

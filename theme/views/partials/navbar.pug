@@ -4,7 +4,7 @@ mm-navbar
       .w-100
         .row.flex-nowrap.justify-content-between
           //- Left
-          .col-auto.d-flex.align-items-center.justify-content-start(rv-element="colHamburgerEl", style="min-width: 114px;")
+          .col-auto.pe-0.d-flex.align-items-center.justify-content-start(rv-element="colHamburgerEl", style="min-width: 114px;")
             bs5-toggle-button.me-2.d-md-none(target-id="main-sidebar")
               ul.nav.d-flex.align-items-center.justify-content-center
                 li.nav-item.d-flex.align-items-center
@@ -12,7 +12,7 @@ mm-navbar
                 li.nav-item.d-flex.align-items-center
                   bs5-icon(src='/iconset/svg/icon_close.svg', size='32', rv-show='isActive', rv-on-click='toggle')
           //- Middle
-          nav.col.navbar-nav.d-none.d-md-flex.justify-content-center(rv-element="colNavEl")
+          nav.col.px-0.navbar-nav.d-none.d-md-flex.justify-content-center.text-nowrap(rv-element="colNavEl")
             if (nav.links)
               each link in nav.links
                 if(link.page && link.page.data)
@@ -25,7 +25,7 @@ mm-navbar
                   .nav-item
                     a.nav-link(href=link.url, rv-route-class-active=`'${link.url}'`)= link.label
           //- Right
-          .col-auto.d-flex.align-items-center.justify-content-end(rv-element="colToolsEl")
+          .col-auto.ps-0.d-flex.align-items-center.justify-content-end(rv-element="colToolsEl")
             bs5-theme-button.mx-2(mode="icon")
-            bs5-share.mx-2.d-flex.align-items-center.justify-content-center(mode="icon" dropdown-direction="up", dropdown-alignment="start", title=`${contact.firstName || ""} ${contact.lastName || ""} - ${contact.title || ""}`, text=`Schau' dir mal die Seite von dem Fachanwalt für Erbrecht an.`, label-clipboard="URL kopieren", label-email="E-Mail")
+            bs5-share.mx-2.d-flex.align-items-center.justify-content-center(mode="icon" dropdown-direction="up", dropdown-alignment="start", title=`${firstName || ""} ${lastName || ""} - ${title || ""}`, text=`Schau' dir mal die Seite von dem Fachanwalt für Erbrecht an.`, label-clipboard="URL kopieren", label-email="E-Mail")
               bs5-icon(src='/iconset/svg/social_share.svg', size='24', rv-on-click="share", role="button", aria-haspopup="true", aria-expanded="false")

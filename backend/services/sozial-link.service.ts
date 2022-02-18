@@ -11,6 +11,9 @@ export class SocialLinkService {
 
   public async _list() {
     const { data } = await this.strapi.list<StrapiRestAPIListSocialLink>();
+    if (!data) {
+      return [];
+    }
     const links = data.map((dat) => dat.attributes);
     return links.filter((link) => link.active !== false);
   }

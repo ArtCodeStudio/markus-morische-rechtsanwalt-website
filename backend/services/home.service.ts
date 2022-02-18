@@ -13,7 +13,7 @@ export class HomeService {
     const { data } = await this.strapi.get<StrapiRestAPIGetHome>({
       query: {
         populate: [
-          "avatar"
+          "avatar", "seo", "openGraph", "openGraph.images"
         ]
       }
     });
