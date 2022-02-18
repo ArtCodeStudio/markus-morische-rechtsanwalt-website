@@ -55,14 +55,15 @@ export class ViewService {
 
     public async renderHomePage() {
         const template = "templates/home";
-        if (this.cache.has(template)) {
-            const result = this.cache.get(template);
+        const key = `${template}`;
+        if (this.cache.has(key)) {
+            const result = this.cache.get(key);
             result.__isActionResult = true;
             return result;
         }
         const contact = await this._renderHomePage(template);
-        this.cache.set(template, contact);
-        return this.cache.get(template);
+        this.cache.set(key, contact);
+        return this.cache.get(key);
     }
 
     public async _renderDynamicPage(template: string, slug: string) {
@@ -94,14 +95,15 @@ export class ViewService {
 
     public async renderDynamicPage(slug: string) {
         const template = "templates/page";
-        if (this.cache.has(template)) {
-            const result = this.cache.get(template);
+        const key = `${template}/${slug}`;
+        if (this.cache.has(key)) {
+            const result = this.cache.get(key);
             result.__isActionResult = true;
             return result;
         }
         const contact = await this._renderDynamicPage(template, slug);
-        this.cache.set(template, contact);
-        return this.cache.get(template);
+        this.cache.set(key, contact);
+        return this.cache.get(key);
     }
 
     public async _renderContactPage(template: string) {
@@ -131,14 +133,15 @@ export class ViewService {
 
     public async renderContactPage() {
         const template = "templates/contact";
-        if (this.cache.has(template)) {
-            const result = this.cache.get(template);
+        const key = `${template}`;
+        if (this.cache.has(key)) {
+            const result = this.cache.get(key);
             result.__isActionResult = true;
             return result;
         }
         const contact = await this._renderContactPage(template);
-        this.cache.set(template, contact);
-        return this.cache.get(template);
+        this.cache.set(key, contact);
+        return this.cache.get(key);
     }
 
     public async _renderDynamicGallery(template: string, slug: string) {
@@ -170,14 +173,15 @@ export class ViewService {
 
     public async renderDynamicGallery(slug: string) {
         const template = "templates/gallery";
-        if (this.cache.has(template)) {
-            const result = this.cache.get(template);
+        const key = `${template}/${slug}`;
+        if (this.cache.has(key)) {
+            const result = this.cache.get(key);
             result.__isActionResult = true;
             return result;
         }
         const contact = await this._renderDynamicGallery(template, slug);
-        this.cache.set(template, contact);
-        return this.cache.get(template);
+        this.cache.set(key, contact);
+        return this.cache.get(key);
     }
 
     public async renderErrorPage(error: HttpError, ctx: ViewContext) {
