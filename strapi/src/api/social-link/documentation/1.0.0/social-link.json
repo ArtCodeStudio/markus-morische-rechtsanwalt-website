@@ -96,7 +96,9 @@
                                   "social_youtube_square",
                                   "icon_download",
                                   "icon_contacts",
-                                  "icon_contacts_alt"
+                                  "icon_contacts_alt",
+                                  "icon_mail",
+                                  "icon_mail_alt"
                                 ]
                               },
                               "url": {
@@ -757,7 +759,9 @@
                                 "social_youtube_square",
                                 "icon_download",
                                 "icon_contacts",
-                                "icon_contacts_alt"
+                                "icon_contacts_alt",
+                                "icon_mail",
+                                "icon_mail_alt"
                               ]
                             },
                             "url": {
@@ -1307,7 +1311,9 @@
                           "social_youtube_square",
                           "icon_download",
                           "icon_contacts",
-                          "icon_contacts_alt"
+                          "icon_contacts_alt",
+                          "icon_mail",
+                          "icon_mail_alt"
                         ]
                       },
                       "url": {
@@ -1416,7 +1422,9 @@
                                 "social_youtube_square",
                                 "icon_download",
                                 "icon_contacts",
-                                "icon_contacts_alt"
+                                "icon_contacts_alt",
+                                "icon_mail",
+                                "icon_mail_alt"
                               ]
                             },
                             "url": {
@@ -1986,7 +1994,9 @@
                                 "social_youtube_square",
                                 "icon_download",
                                 "icon_contacts",
-                                "icon_contacts_alt"
+                                "icon_contacts_alt",
+                                "icon_mail",
+                                "icon_mail_alt"
                               ]
                             },
                             "url": {
@@ -2547,7 +2557,9 @@
                           "social_youtube_square",
                           "icon_download",
                           "icon_contacts",
-                          "icon_contacts_alt"
+                          "icon_contacts_alt",
+                          "icon_mail",
+                          "icon_mail_alt"
                         ]
                       },
                       "url": {

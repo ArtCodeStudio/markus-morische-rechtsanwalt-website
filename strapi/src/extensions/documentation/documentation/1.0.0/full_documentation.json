@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2022-02-18T11:27:07.352Z"
+    "x-generation-date": "2022-02-18T16:02:35.684Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -29658,7 +29658,9 @@
                                   "social_youtube_square",
                                   "icon_download",
                                   "icon_contacts",
-                                  "icon_contacts_alt"
+                                  "icon_contacts_alt",
+                                  "icon_mail",
+                                  "icon_mail_alt"
                                 ]
                               },
                               "url": {
@@ -30319,7 +30321,9 @@
                                 "social_youtube_square",
                                 "icon_download",
                                 "icon_contacts",
-                                "icon_contacts_alt"
+                                "icon_contacts_alt",
+                                "icon_mail",
+                                "icon_mail_alt"
                               ]
                             },
                             "url": {
@@ -30869,7 +30873,9 @@
                           "social_youtube_square",
                           "icon_download",
                           "icon_contacts",
-                          "icon_contacts_alt"
+                          "icon_contacts_alt",
+                          "icon_mail",
+                          "icon_mail_alt"
                         ]
                       },
                       "url": {
@@ -30978,7 +30984,9 @@
                                 "social_youtube_square",
                                 "icon_download",
                                 "icon_contacts",
-                                "icon_contacts_alt"
+                                "icon_contacts_alt",
+                                "icon_mail",
+                                "icon_mail_alt"
                               ]
                             },
                             "url": {
@@ -31548,7 +31556,9 @@
                                 "social_youtube_square",
                                 "icon_download",
                                 "icon_contacts",
-                                "icon_contacts_alt"
+                                "icon_contacts_alt",
+                                "icon_mail",
+                                "icon_mail_alt"
                               ]
                             },
                             "url": {
@@ -32109,7 +32119,9 @@
                           "social_youtube_square",
                           "icon_download",
                           "icon_contacts",
-                          "icon_contacts_alt"
+                          "icon_contacts_alt",
+                          "icon_mail",
+                          "icon_mail_alt"
                         ]
                       },
                       "url": {

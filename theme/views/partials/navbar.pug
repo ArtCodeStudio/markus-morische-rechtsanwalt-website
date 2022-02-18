@@ -7,10 +7,12 @@ mm-navbar
           .col-auto.pe-0.d-flex.align-items-center.justify-content-start(rv-element="colHamburgerEl", style="min-width: 114px;")
             bs5-toggle-button.me-2.d-md-none(target-id="main-sidebar")
               ul.nav.d-flex.align-items-center.justify-content-center
-                li.nav-item.d-flex.align-items-center
-                  bs5-icon(src='/iconset/svg/icon_menu.svg', size='32', rv-hide='isActive', rv-on-click='toggle')
-                li.nav-item.d-flex.align-items-center
-                  bs5-icon(src='/iconset/svg/icon_close.svg', size='32', rv-show='isActive', rv-on-click='toggle')
+                li.nav-item.d-flex.align-items-center(rv-hide='isActive', rv-on-click='toggle')
+                  bs5-icon.text-primary(src='/iconset/svg/icon_menu.svg', size='32')
+                  | Menü
+                li.nav-item.d-flex.align-items-center(rv-show='isActive', rv-on-click='toggle')
+                  bs5-icon.text-primary(src='/iconset/svg/icon_close.svg', size='32')
+                  | Schließen
           //- Middle
           nav.col.px-0.navbar-nav.d-none.d-md-flex.justify-content-center.text-nowrap(rv-element="colNavEl")
             if (nav.links)

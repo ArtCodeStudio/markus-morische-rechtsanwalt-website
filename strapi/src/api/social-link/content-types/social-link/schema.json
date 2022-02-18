@@ -4,7 +4,8 @@
   "info": {
     "singularName": "social-link",
     "pluralName": "social-links",
-    "displayName": "Social Link"
+    "displayName": "Social Link",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -88,7 +89,9 @@
         "social_youtube_square",
         "icon_download",
         "icon_contacts",
-        "icon_contacts_alt"
+        "icon_contacts_alt",
+        "icon_mail",
+        "icon_mail_alt"
       ],
       "required": true
     },
