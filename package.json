@@ -10,9 +10,10 @@
         "pm2:start": "yarn run pm2:start:strapi && yarn run pm2:start:backend",
         "pm2:start:strapi": "pm2 --cwd strapi start strapi/pm2.strapi.config.js",
         "pm2:start:backend": "dvm use 1.16.2 && pm2 --cwd backend start backend/pm2.backend.config.js",
-        "build": "yarn run build:theme && yarn run build:strapi",
+        "build": "yarn run build:types:schema && yarn run build:theme && yarn run build:strapi",
         "build:theme": "yarn workspace @markus-morische/theme run build",
-        "build:strapi": "cd strapi && NODE_OPTIONS=\"\" npm run build && cd .."
+        "build:strapi": "cd strapi && NODE_OPTIONS=\"\" npm run build && cd ..",
+        "build:types:schema": "schema-dts-gen --nodeprecated > ./backend/types/schema.ts"
     },
     "workspaces": [
         "packages/riba/packages/*",
@@ -28,6 +29,7 @@
     "devDependencies": {
         "@yarnpkg/sdks": "^2.6.0-rc.6",
         "pm2": "^5.1.2",
+        "schema-dts-gen": "^1.0.0",
         "typescript": "^4.5.5"
     },
     "dependencies": {

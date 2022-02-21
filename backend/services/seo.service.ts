@@ -3,14 +3,18 @@ import { SEOOptions } from "../types/seo-options.ts";
 import { StrapiImage } from "../types/strapi-image.ts";
 import { SEO } from "../types/seo.ts";
 import { OpenGraph } from "../types/open-graph.ts";
-import { SEOSchema } from "../types/seo-schema.ts";
-import { SEOSchemaPerson } from "../types/seo-schema-person.ts";
+// See https://github.com/google/schema-dts
+import * as Schema from "../types/schema.ts";
 import { StrapiService } from "./strapi.service.ts";
 
 @Singleton()
 export class SeoService {
 
   private readonly strapi = new StrapiService("");
+
+  private canonical = {
+    host: Deno.env.get("CANONICAL_HOST") || "https://markusmorische.de",
+  }
 
   constructor() { }
 
@@ -20,27 +24,29 @@ export class SeoService {
 
     const og: OpenGraph = this.initOpenGraph(options);
 
-    const schema: SEOSchema = {
-      persons: []
-    };
+    let schema: Schema.WithContext<Schema.Thing> | null = null;
 
     switch (options.template) {
       case "page":
         this.setSEOPage(seo, options);
         this.setOCPage(og, options);
+        schema = this.getSchemaPage(seo, options);
         break;
       case "contact":
         this.setSEOContact(seo, options);
         this.setOCContact(og, options);
-        this.setSchemaContact(schema, options);
+        schema = this.getSchemaContact(options);
         break;
       case "gallery":
         this.setSEOGallery(seo, options);
         this.setOCGallery(og, options);
+        // TODO: https://schema.org/ArtGallery
+        schema = this.getSchemaPage(seo, options);
         break;
       case "home":
         this.setSEOHome(seo, options);
         this.setOCHome(og, options);
+        schema = this.getSchemaPage(seo, options);
         break;
       default:
         break;
@@ -56,7 +62,7 @@ export class SeoService {
   initSEO(options: SEOOptions) {
     const data = options.contact?.seo || options.page?.seo || options.home?.seo || options.gallery?.seo;
     const seo: SEO = {
-      canonical: "https://markusmorische.de",
+      canonical: this.canonical.host,
       description: "",
       title: "Markus Morische",
       locale: "de_DE",
@@ -72,7 +78,7 @@ export class SeoService {
   initOpenGraph(options: SEOOptions) {
     const data = options.contact?.openGraph || options.page?.openGraph || options.home?.openGraph || options.gallery?.openGraph;
     const og: OpenGraph = {
-      canonical: "https://markusmorische.de",
+      canonical: this.canonical.host,
       description: "",
       title: "Markus Morische",
       type: "website",
@@ -159,6 +165,34 @@ export class SeoService {
     }
   }
 
+  private getSchemaPage(seo: SEO, options: SEOOptions) {
+    if (options.template === "page" && options.page) {
+      // https://schema.org/AboutPage
+      if (options.page.slug === 'ueber-mich' || options.page.slug === 'about' || options.page.slug === 'ueber') {
+        const about: Schema.WithContext<Schema.AboutPage> = {
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          inLanguage: "de-DE",
+          url: seo.canonical,
+          description: seo.description,
+          name: seo.title,
+        };
+        return about;
+      } else {
+        const page: Schema.WithContext<Schema.WebPage> = {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          inLanguage: "de-DE",
+          url: seo.canonical,
+          description: seo.description,
+          name: seo.title,
+        };
+        return page;
+      }
+    }
+    return null;
+  }
+
   private setSEOContact(seo: SEO, options: SEOOptions) {
     if (options.template === "contact") {
       seo.canonical = seo.canonical + "/contact";
@@ -216,11 +250,12 @@ export class SeoService {
     }
   }
 
-  private setSchemaContact(schema: SEOSchema, options: SEOOptions) {
+  private getSchemaContact(options: SEOOptions) {
+    // person
     if (options.contact?.offices?.data) {
       for (const _office of options.contact.offices.data) {
         const office = _office.attributes;
-        const person: SEOSchemaPerson = {
+        const person: Schema.WithContext<Schema.Person> = {
           "@context": "https://schema.org",
           "@type": "Person",
           address: {
@@ -240,9 +275,10 @@ export class SeoService {
           faxNumber: office.faxNumber,
           url: office.url
         }
-        schema.persons.push(person);
+        return person;
       }
     }
+    return null;
   }
 
   private setSEOGallery(seo: SEO, options: SEOOptions) {
