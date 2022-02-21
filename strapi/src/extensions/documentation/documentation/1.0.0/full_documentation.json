@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2022-02-18T16:02:35.684Z"
+    "x-generation-date": "2022-02-18T16:52:42.508Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -27,7 +27,7 @@
   },
   "servers": [
     {
-      "url": "http://127.0.0.1:4002/api",
+      "url": "https://dev.markusmorische.de/api",
       "description": "Development server"
     }
   ],
