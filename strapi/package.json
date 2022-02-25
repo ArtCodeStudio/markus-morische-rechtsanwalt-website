@@ -13,7 +13,9 @@
     "build": "cp ./.env.prod ./.env && strapi build && rm ./.env",
     "build:dev": "cp ./.env.dev ./.env && strapi build && rm ./.env",
     "build:local": "cp ./.env.local ./.env && strapi build && rm ./.env",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "update": "ncu",
+    "upgrade": "ncu -u && npm install"
   },
   "dependencies": {
     "@strapi/plugin-documentation": "^4.1.0",
