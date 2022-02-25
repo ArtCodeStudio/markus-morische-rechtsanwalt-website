@@ -48,7 +48,7 @@ export class CSRApp {
     );
     this.riba.module.regist(extrasModule.init({}));
     this.riba.module.regist(masonryModule.init({}));
-    this.riba.module.regist(bs5Module.init({}));
+    this.riba.module.regist(bs5Module.init({ allowStoreDataInBrowser: false }));
     this.riba.module.regist(bs5PhotoswipeModule.init({}));
     this.riba.module.regist(strapiModule.init({}));
 

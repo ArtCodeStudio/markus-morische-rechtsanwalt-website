@@ -14,8 +14,6 @@ html.theme-os(lang='de')
 
   body
     script.
-      document.documentElement.classList.remove("theme-os");
-      document.documentElement.classList.add(localStorage.getItem("bs5-theme") || "theme-os");
       window.env = {};
       window.env.STRAPI_REMOTE_URL = "#{env.STRAPI_REMOTE_URL}";
     include ../partials/header.pug
