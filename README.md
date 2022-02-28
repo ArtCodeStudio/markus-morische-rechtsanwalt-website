@@ -2,7 +2,7 @@
 
 Monorepo of website project for [markusmorische.de](https://markusmorische.de/) build with Deno + Alosaur + Riba.js + Strapi.
 
-![Screenshot](https://user-images.githubusercontent.com/1073989/141288178-949b138d-c1f7-44fb-b729-f67a72e3d17c.png)
+![Screenshot](https://raw.githubusercontent.com/ArtCodeStudio/markus-morische-rechtsanwalt-website/main/animation.gif)
 
 ## Licence
 
