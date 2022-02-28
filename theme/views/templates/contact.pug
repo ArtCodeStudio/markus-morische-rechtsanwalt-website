@@ -49,6 +49,6 @@ block content
                         a.card-link(href=`/backend/api/contact/${office.slug}` download=`${office.slug}.vcf`) Kontakt
                     .col-md-8
                       a.map-copyright(href="https://www.openstreetmap.org/copyright", target="__blank", rel="nofollow")
-                        small © OpenStreetMap-Mitwirkende 
+                        small.me-2 © OpenStreetMap-Mitwirkende 
                       .map-scroll-wrapper.bg-green.scrollbar-invisible(rv-scrollbar-draggable, rv-element="scrollWrapperEl")
                         img(src=office.map.data.attributes.url width=office.map.data.attributes.width / 3, height=office.map.data.attributes.height / 3, rv-on-load="center", draggable="false")
