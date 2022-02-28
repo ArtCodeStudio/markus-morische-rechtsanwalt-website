@@ -179,8 +179,8 @@ export class ViewService {
             result.__isActionResult = true;
             return result;
         }
-        const contact = await this._renderDynamicGallery(template, slug);
-        this.cache.set(key, contact);
+        const gallery = await this._renderDynamicGallery(template, slug);
+        this.cache.set(key, gallery);
         return this.cache.get(key);
     }
 

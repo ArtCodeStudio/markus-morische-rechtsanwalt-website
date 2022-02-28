@@ -53,11 +53,7 @@ export class ContactService {
     try {
       const { data } = await this.strapi.get<StrapiRestAPIGetContact>({
         query: {
-          populate: {
-            offices: {
-              populate: ["map", "seo", "openGraph", "openGraph.images"]
-            }
-          }
+          populate:["seo", "openGraph", "openGraph.images", "offices", "offices.map"],
         }
       });
       const page = data.attributes;

@@ -194,24 +194,24 @@ export class SeoService {
   }
 
   private setSEOContact(seo: SEO, options: SEOOptions) {
-    if (options.template === "contact") {
+    if (options.template === "contact" && options.contact) {
       seo.canonical = seo.canonical + "/contact";
 
       // title
-      if (options.contact?.seo?.title) {
+      if (options.contact.seo?.title) {
         seo.title = options.contact.seo.title;
-      } else if (options.contact?.openGraph?.title) {
+      } else if (options.contact.openGraph?.title) {
         seo.title = options.contact.openGraph.title;
       } else {
-        seo.title += " - " + options.contact?.title || "Kontakt";
+        seo.title += " - " + options.contact.title || "Kontakt";
       }
 
       // description
-      if (options.contact?.seo?.description) {
+      if (options.contact.seo?.description) {
         seo.description = this.parseSEODescription(options.contact.seo.description);
-      } else if (options.contact?.openGraph?.description) {
+      } else if (options.contact.openGraph?.description) {
         seo.description = this.parseSEODescription(options.contact.openGraph.description);
-      } else if (options.contact?.content) {
+      } else if (options.contact.content) {
         seo.description = this.parseSEODescription(options.contact.content);
       }
     }
