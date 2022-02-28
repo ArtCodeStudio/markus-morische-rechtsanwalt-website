@@ -63,8 +63,6 @@ export class GalleryService {
       return data;
     })
     if (gallery.content) gallery.content = this.strapi.renderMarkdown(gallery.content);
-    console.debug("gallery");
-    console.dir(gallery);
     return gallery;
   }
 }
