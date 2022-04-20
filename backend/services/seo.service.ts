@@ -6,15 +6,12 @@ import { OpenGraph } from "../types/open-graph.ts";
 // See https://github.com/google/schema-dts
 import * as Schema from "../types/schema.ts";
 import { StrapiService } from "./strapi.service.ts";
+import { canonical } from "../settings.ts"
 
 @Singleton()
 export class SeoService {
 
   private readonly strapi = new StrapiService("");
-
-  private canonical = {
-    host: Deno.env.get("CANONICAL_HOST") || "https://markusmorische.de",
-  }
 
   constructor() { }
 
@@ -62,7 +59,7 @@ export class SeoService {
   initSEO(options: SEOOptions) {
     const data = options.contact?.seo || options.page?.seo || options.home?.seo || options.gallery?.seo;
     const seo: SEO = {
-      canonical: this.canonical.host,
+      canonical: canonical.host,
       description: "",
       title: "Markus Morische",
       locale: "de_DE",
@@ -78,7 +75,7 @@ export class SeoService {
   initOpenGraph(options: SEOOptions) {
     const data = options.contact?.openGraph || options.page?.openGraph || options.home?.openGraph || options.gallery?.openGraph;
     const og: OpenGraph = {
-      canonical: this.canonical.host,
+      canonical: canonical.host,
       description: "",
       title: "Markus Morische",
       type: "website",

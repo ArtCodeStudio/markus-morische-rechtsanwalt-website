@@ -7,9 +7,4 @@ bs5-sidebar.bg-dark.text-light.d-flex.justify-content-center.align-items-center#
     nav.list-group.list-group-dark.w-100
         if (nav.links && nav.links.length > 0)
             each link in nav.links
-                if(link.page && link.page.data)
-                    a.list-group-item.list-group-item-action(href=`/${link.page.data.attributes.slug}`, rv-route-class-active=`'/${link.page.data.attributes.slug}'`)= link.label
-                else if(link.gallery && link.gallery.data)
-                    a.list-group-item.list-group-item-action(href=`/gallery/${link.gallery.data.attributes.slug}`, rv-route-class-active=`'/gallery/${link.gallery.data.attributes.slug}'`)= link.label
-                else if(link.url)
-                    a.list-group-item.list-group-item-action(href=link.url, rv-route-class-active=`'${link.url}'`)= link.label
+                a.list-group-item.list-group-item-action(href=link.url, rv-route-class-active=`'${link.url}'`)= link.label

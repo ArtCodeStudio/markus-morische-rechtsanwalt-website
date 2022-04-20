@@ -3,6 +3,7 @@ import { AppSettings, ViewRenderConfig } from "alosaur/mod.ts";
 import { ResponseCacheStoreToken, MemoryResponseCacheStore } from "alosaur/src/hooks/response-cache/mod.ts";
 import { ViewArea } from "./areas/view/view.area.ts";
 import { ApiArea } from "./areas/backend/api/api.area.ts";
+import { SeoArea } from "./areas/backend/seo/seo.area.ts";
 import { Log } from "./middlewares/log.middleware.ts";
 import { compileFile, Options as PugOptions } from "pug/mod.ts";
 const DENO_ENV = Deno.env.get("DENO_ENV") || ".env";
@@ -27,7 +28,7 @@ const STRAPI_LOCAL_URL = Deno.env.get("STRAPI_LOCAL_URL") ||
   `http://localhost:3002`;
 
 export const appSettings: AppSettings = {
-  areas: [ViewArea, ApiArea],
+  areas: [ViewArea, ApiArea, SeoArea],
   // TODO: Fix: https://github.com/alosaur/alosaur/issues/180
   // See also https://github.com/alosaur/alosaur/tree/master/src/hooks/response-cache
   providers: [{
@@ -51,6 +52,10 @@ export const strapiConfig = {
     local: STRAPI_LOCAL_URL,
   },
 };
+
+export const canonical = {
+  host: Deno.env.get("CANONICAL_HOST") || "https://markusmorische.de",
+}
 
 const viewGlobalModel = {
   env: {
