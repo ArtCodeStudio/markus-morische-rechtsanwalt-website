@@ -2,12 +2,12 @@ mm-header
   header.container-fluid.container-lg
     .row
       .col
-        mm-logo.py-2
+        mm-logo.py-2(role="banner")
           a(href="/")
             span.d-tl-none
-              img.img-fluid(role="logo" loading="lazy", src="/images/logo-light.svg", title="Logo", alt="Logo (light)", width="394", height="220")
+              img.img-fluid(loading="lazy", src="/images/logo-light.svg", title="Logo", alt="Logo (light)", width="394", height="220")
             span.d-td-none
-              img.img-fluid(role="logo" loading="lazy", src="/images/logo.svg", title="Logo", alt="Logo", width="394", height="220")
+              img.img-fluid(loading="lazy", src="/images/logo.svg", title="Logo", alt="Logo", width="394", height="220")
       .col-auto
         .row.h-100.d-flex.align-items-end.justify-content-center
           if email
@@ -24,5 +24,5 @@ mm-header
           each social in socialLinks
             - var svgSrc = "/iconset/svg/" + social.icon + ".svg";
             .col
-              a(href=social.url, target="_blank", rel="nofollow")
+              a(href=social.url, target="_blank", rel="nofollow" aria-label=social.platform)
                 bs5-icon(src=svgSrc, size="32")

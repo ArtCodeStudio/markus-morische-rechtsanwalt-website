@@ -6,6 +6,7 @@ export interface SocialLink extends StrapiDataBase {
   icon: string;
   url: string;
   active: boolean;
+  platform?: string;
 }
 
 export type StrapiRestAPIGetSocialLink = StrapiRestAPIGet<SocialLink>;

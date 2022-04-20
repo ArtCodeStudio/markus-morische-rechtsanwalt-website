@@ -14,7 +14,15 @@ export class SocialLinkService {
     if (!data) {
       return [];
     }
-    const links = data.map((dat) => dat.attributes);
+    const links = data.map((dat) => {
+      const attr = dat.attributes;
+      const platform = attr.icon.replaceAll("social_", "").replaceAll(
+        "_circle",
+        "",
+      ).replaceAll("_square", "").replaceAll(".svg", "");
+      attr.platform = platform;
+      return attr;
+    });
     return links.filter((link) => link.active !== false);
   }
 

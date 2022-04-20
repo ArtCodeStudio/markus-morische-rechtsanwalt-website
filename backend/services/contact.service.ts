@@ -53,7 +53,7 @@ export class ContactService {
     try {
       const { data } = await this.strapi.get<StrapiRestAPIGetContact>({
         query: {
-          populate:["seo", "openGraph", "openGraph.images", "offices", "offices.map"],
+          populate: ["seo", "openGraph", "openGraph.images", "offices", "offices.map"],
         }
       });
       const page = data.attributes;
@@ -88,11 +88,7 @@ export class ContactService {
     socialLinks = socialLinks || await this.social.list();
     const socialUrls = new Map<string, string>();
     for (const socialLink of socialLinks) {
-      const platform = socialLink.icon.replaceAll("social_", "").replaceAll(
-        "_circle",
-        "",
-      ).replaceAll("_square", "").replaceAll(".svg", "");
-      socialUrls.set(platform, socialLink.url);
+      socialUrls.set(socialLink.platform || "unknown", socialLink.url);
     }
 
     return socialUrls;
