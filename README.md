@@ -1,6 +1,6 @@
 # markus-morische-rechtsanwalt-website
 
-Monorepo of website project for [markusmorische.de](https://markusmorische.de/) build with Deno + Alosaur + Riba.js + Strapi.
+Monorepo of website project for [markusmorische.de](https://markusmorische.de/) build with [Deno](https://deno.land/) + [Alosaur](https://alosaur.com/) + [Riba.js](https://ribajs.com/) + [Strapi](https://strapi.io/).
 
 ![Screenshot](https://raw.githubusercontent.com/ArtCodeStudio/markus-morische-rechtsanwalt-website/main/animation.gif)
 
@@ -32,11 +32,11 @@ git pull --recurse-submodules
 
 ## Backend
 
-Tested with Deno v1.19.1, you can use [DVM](https://opensourcelibs.com/lib/dvm) to switch between different Deno versions:
+Tested with Deno v1.20.4, you can use [DVM](https://opensourcelibs.com/lib/dvm) to switch between different Deno versions:
 
 ```bash
-dvm install 1.19.1
-dvm use 1.19.1
+dvm install 1.20.4
+dvm use 1.20.4
 ```
 
 ### Start
@@ -86,7 +86,7 @@ npm install --global yarn
 
 ```bash
 cd theme
-npm run build
+yarn run build
 ```
 ## Development
 
