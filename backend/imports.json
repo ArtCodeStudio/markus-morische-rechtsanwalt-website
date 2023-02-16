@@ -1,9 +1,9 @@
 {
   "imports": {
-    "alosaur/": "https://deno.land/x/alosaur@v0.37.0/",
+    "alosaur/": "https://deno.land/x/alosaur@v0.38.0/",
     "pug/": "https://raw.githubusercontent.com/lumeland/pug/master/",
     "dotenv/": "https://deno.land/x/dotenv@v3.2.0/",
-    "std/": "https://deno.land/std@0.135.0/",
+    "std/": "https://deno.land/std@0.177.0/",
     "rusty_markdown/": "https://deno.land/x/rusty_markdown@v0.4.1/",
     "vcard/": "https://deno.land/x/vcard@v1.0.7d/",
     "qs/": "https://deno.land/x/deno_qs@0.0.1/",

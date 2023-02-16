@@ -32,11 +32,11 @@ git pull --recurse-submodules
 
 ## Backend
 
-Tested with Deno v1.20.4, you can use [DVM](https://opensourcelibs.com/lib/dvm) to switch between different Deno versions:
+Tested with Deno v1.30.3, you can use [DVM](https://opensourcelibs.com/lib/dvm) to switch between different Deno versions:
 
 ```bash
-dvm install 1.20.4
-dvm use 1.20.4
+dvm install 1.30.3
+dvm use 1.30.3
 ```
 
 ### Start

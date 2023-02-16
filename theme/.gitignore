@@ -42,8 +42,5 @@ lerna-debug.log*
 .pnp.*
 
 # Dist files
-assets/iconset
-assets/images/vendors
 assets/*.js
-assets/main.css
 assets/*.LICENSE.txt

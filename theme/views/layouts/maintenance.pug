@@ -17,5 +17,4 @@ html(lang='de')
     script.
       window.env = {};
       window.env.STRAPI_REMOTE_URL = "#{env.STRAPI_REMOTE_URL}";
-    script(src='/vendors.bundle.js')
-    script(src='/main.bundle.js')
+    script(async, type="module", src='/scripts/index.bundle.js')

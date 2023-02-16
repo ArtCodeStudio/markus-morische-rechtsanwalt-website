@@ -21,5 +21,5 @@ html.theme-os(lang='de')
       block content
     include ../partials/navbar.pug
     include ../partials/sidebar.pug
-    script(async, src='/vendors.bundle.js')
-    script(async, src='/main.bundle.js')
+    script(async, type='module', src='/scripts/index.bundle.js')
+    script(async, type='application/javascript', nomodule, src='/scripts/index.bundle.js')

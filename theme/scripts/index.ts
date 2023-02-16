@@ -32,29 +32,29 @@ export class CSRApp {
     });
 
     // Regist custom components
-    this.riba.module.component.regists({
+    this.riba.module.component.registerAll({
       ...components,
       ...pages,
     });
-    this.riba.module.binder.regists({ ...binders });
-    this.riba.module.formatter.regists({ ...formatters });
+    this.riba.module.binder.registerAll({ ...binders });
+    this.riba.module.formatter.registerAll({ ...formatters });
 
     // Regist modules
-    this.riba.module.regist(coreModule.init());
-    this.riba.module.regist(
+    this.riba.module.register(coreModule.init());
+    this.riba.module.register(
       routerModule.init({
         defaultTransition: new FadeTransition(),
       })
     );
-    this.riba.module.regist(extrasModule.init({}));
-    this.riba.module.regist(masonryModule.init({}));
-    this.riba.module.regist(bs5Module.init({ allowStoreDataInBrowser: false }));
-    this.riba.module.regist(bs5PhotoswipeModule.init({}));
-    this.riba.module.regist(strapiModule.init({}));
+    this.riba.module.register(extrasModule.init({}));
+    this.riba.module.register(masonryModule.init({}));
+    this.riba.module.register(bs5Module.init({ allowStoreDataInBrowser: false }));
+    this.riba.module.register(bs5PhotoswipeModule.init({}));
+    this.riba.module.register(strapiModule.init({}));
 
     this.view = this.riba.bind(document.body, this.model);
 
-    this.view.registComponents();
+    this.view.registerComponents();
 
     this.riba.lifecycle.events.on(
       "ComponentLifecycle:error",

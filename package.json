@@ -25,23 +25,23 @@
         "!packages/riba/infra/schematics",
         "theme"
     ],
-    "packageManager": "yarn@3.2.0",
+    "packageManager": "yarn@3.4.1",
     "devDependencies": {
-        "@yarnpkg/sdks": "^3.0.0-rc.2",
-        "pm2": "^5.2.0",
+        "@yarnpkg/sdks": "^3.0.0-rc.39",
+        "pm2": "^5.2.2",
         "schema-dts-gen": "^1.1.0",
-        "typescript": "^4.6.3"
+        "typescript": "^4.9.5"
     },
     "dependencies": {
         "@ribajs/eslint-config": "workspace:packages/riba/infra/eslint-config",
-        "@typescript-eslint/eslint-plugin": "^5.20.0",
-        "@typescript-eslint/experimental-utils": "^5.20.0",
-        "@typescript-eslint/parser": "^5.20.0",
-        "@yarnpkg/pnpify": "^4.0.0-rc.2",
-        "concurrently": "^7.1.0",
-        "eslint": "^8.13.0",
-        "eslint-config-prettier": "^8.5.0",
-        "eslint-plugin-prettier": "^4.0.0"
+        "@typescript-eslint/eslint-plugin": "^5.52.0",
+        "@typescript-eslint/experimental-utils": "^5.52.0",
+        "@typescript-eslint/parser": "^5.52.0",
+        "@yarnpkg/pnpify": "^4.0.0-rc.39",
+        "concurrently": "^7.6.0",
+        "eslint": "^8.34.0",
+        "eslint-config-prettier": "^8.6.0",
+        "eslint-plugin-prettier": "^4.2.1"
     },
     "resolutions": {
         "bootstrap": "twbs/bootstrap#main"
